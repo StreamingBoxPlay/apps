@@ -1,0 +1,106 @@
+[
+    {
+        "id": "1",
+        "nome": "Nova Era",
+        "data": "02/09/2026",
+        "downloader": "1055158",
+        "linkDownload": "https://dl.ntdev.in/19367",
+        "icone": "imagem/nova-era.jfif"
+    },
+    {
+        "id": "2",
+        "nome": "UNITV",
+        "data": "02/09/2026",
+        "downloader": "4237022",
+        "linkDownload": "https://uvtpdw.playtro.click/tp/uv_4.20.1.apk",
+        "icone": "imagem/unitv.jfif"
+    },
+    {
+        "id": "3",
+        "nome": "UNITV Celular",
+        "data": "02/09/2026",
+        "downloader": "281499",
+        "linkDownload": "http://mkdw.qrdldunitvss.com/download",
+        "icone": "imagem/unitv.jfif"
+    },
+    {
+        "id": "4",
+        "nome": "AlphaPlay",
+        "data": "02/09/2026",
+        "downloader": "6988258",
+        "linkDownload": "https://dl.ntdev.in/93978",
+        "icone": "imagem/alphaplay.jfif"
+    },
+    {
+        "id": "5",
+        "nome": "Spark",
+        "data": "02/09/2026",
+        "downloader": "2340800",
+        "linkDownload": "https://dw.zapto.cx/spark109.apk",
+        "icone": "imagem/spark.jfif"
+    },
+    {
+        "id": "6",
+        "nome": "Spark TVBox Fun Play",
+        "data": "02/09/2026",
+        "downloader": "5338337",
+        "linkDownload": "https://www.mediafire.com/file/3nxjtqli6ix8azg/Fun_Play_1.0.12.apk/file",
+        "icone": "imagem/spark.jfif"
+    },
+    {
+        "id": "7",
+        "nome": "New One Binstream V9",
+        "data": "02/09/2026",
+        "downloader": "8414048",
+        "linkDownload": "https://dl.ntdev.in/73511",
+        "icone": "imagem/new-one.jfif"
+    },
+    {
+        "id": "8",
+        "nome": "New One Binstream V10",
+        "data": "02/09/2026",
+        "downloader": "525092",
+        "linkDownload": "https://dl.ntdev.in/92993",
+        "icone": "imagem/new-one.jfif"
+    },
+    {
+        "id": "9",
+        "nome": "New One Fun Play",
+        "data": "02/09/2026",
+        "downloader": "5338337",
+        "linkDownload": "https://www.mediafire.com/file/3nxjtqli6ix8azg/Fun_Play_1.0.12.apk/file",
+        "icone": "imagem/new-one.jfif"
+    },
+    {
+        "id": "10",
+        "nome": "New One VU",
+        "data": "02/09/2026",
+        "downloader": "8788640",
+        "linkDownload": "https://dl.ntdev.in/15621",
+        "icone": "imagem/new-one.jfif"
+    },
+    {
+        "id": "11",
+        "nome": "WPlay P2P Pro",
+        "data": "02/09/2026",
+        "downloader": "3981278",
+        "linkDownload": "https://www.mediafire.com/file/k7mnz41zaxnj3wi/P2P+PRO.apk/file",
+        "icone": "imagem/warez.jfif"
+    },
+    {
+        "id": "12",
+        "nome": "Flixxcine TVBox",
+        "data": "02/09/2026",
+        "downloader": "3488716",
+        "linkDownload": "https://www.mediafire.com/file/z7itozjypss1e26/offline_flixxcine.apk/file",
+        "icone": "imagem/flixx-cine.jfif"
+    },
+    {
+        "id": "13",
+        "nome": "Flixxcine Celular",
+        "data": "02/09/2026",
+        "downloader": "7038778",
+        "linkDownload": "https://cdn.myflixxcineapp.com/apks/flixxcine_mobile_offline.apk",
+        "icone": "imagem/flixx-cine.jfif"
+    }
+]
