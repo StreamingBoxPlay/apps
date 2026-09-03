@@ -54,6 +54,8 @@
 
             display: flex;
             flex-direction: column;
+
+            padding-bottom: 90px;
         }
 
         /* =========================
@@ -290,6 +292,8 @@
                 );
 
             gap: 1.5rem;
+
+            margin-bottom: 3rem;
         }
 
         /* =========================
@@ -582,28 +586,115 @@
         }
 
         /* =========================
-            FERRAMENTAS
+            MENU MAC FOOTER
         ========================= */
 
-        .tools-title {
-            width: 100%;
+        .mac-dock-container {
+            position: fixed;
 
-            text-align: center;
+            bottom: 20px;
 
-            font-size: 1.75rem;
+            left: 50%;
 
-            font-weight: 700;
+            transform: translateX(-50%);
 
-            margin-top: 4rem;
+            background: rgba(19, 21, 32, 0.75);
 
-            padding-top: 2rem;
+            backdrop-filter: blur(16px);
 
-            border-top:
-                1px solid
-                var(--border-color);
+            border: 1px solid var(--border-color);
 
-            color:
-                var(--text-main);
+            border-radius: 20px;
+
+            padding: 10px 16px;
+
+            display: flex;
+
+            gap: 14px;
+
+            z-index: 999;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .dock-item {
+            background: #1c1f2e;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 14px;
+
+            width: 50px;
+
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 1.4rem;
+
+            cursor: pointer;
+
+            position: relative;
+
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dock-item:hover {
+            transform: translateY(-8px) scale(1.1);
+
+            border-color: var(--accent-border);
+
+            box-shadow: 0 10px 20px rgba(147, 51, 234, 0.4);
+        }
+
+        .dock-item.active {
+            border-color: var(--accent-pink);
+
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.6);
+        }
+
+        .dock-tooltip {
+            position: absolute;
+
+            bottom: 65px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: var(--card-bg);
+
+            color: var(--text-main);
+
+            padding: 4px 8px;
+
+            border-radius: 6px;
+
+            font-size: 0.75rem;
+
+            white-space: nowrap;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: all 0.2s ease;
+
+            border: 1px solid var(--border-color);
+
+            pointer-events: none;
+        }
+
+        .dock-item:hover .dock-tooltip {
+            opacity: 1;
+
+            visibility: visible;
         }
 
         /* =========================
@@ -988,10 +1079,6 @@
                 height: 65px;
             }
 
-            .tools-title {
-                font-size: 1.5rem;
-            }
-
         }
 
     </style>
@@ -1062,7 +1149,7 @@
         <input
             type="text"
             id="searchInput"
-            placeholder="Pesquisar aplicativos..."
+            placeholder="Pesquisar itens..."
         >
 
     </div>
@@ -1070,68 +1157,35 @@
 </header>
 
 
-<main>
+<main id="mainContainer">
 
-
-    <!-- =========================
-         APLICATIVOS
-    ========================= -->
-
-    <h1 class="section-title">
-        Aplicativos Disponíveis
-    </h1>
-
-
-    <div
-        id="appsGrid"
-        class="apps-grid"
-    >
-
-        <div class="status-message">
-            Carregando aplicativos...
-        </div>
-
-    </div>
-
-
-    <!-- CARREGAR MAIS -->
-
-    <div
-        id="loadMoreContainer"
-        class="load-more-container"
-        style="display:none;"
-    >
-
-        <button id="loadMoreBtn">
-            Carregar mais
-        </button>
-
-    </div>
-
-
-    <!-- =========================
-         FERRAMENTAS
-         FINAL DA PÁGINA
-    ========================= -->
-
-    <div class="tools-title">
-        Ferramentas
-    </div>
-
-    <div
-        id="toolsGrid"
-        class="apps-grid"
-        style="margin-top: 2rem;"
-    >
-
-        <div class="status-message">
-            Carregando ferramentas...
-        </div>
-
-    </div>
-
+    <!-- Conteúdo dinâmico renderizado via JavaScript -->
 
 </main>
+
+
+<!-- =========================
+     MENU MAC DOCK (FOOTER)
+========================= -->
+
+<div class="mac-dock-container" id="macDock">
+
+    <div class="dock-item active" onclick="switchTab('all')" data-tab="all">
+        🌐
+        <div class="dock-tooltip">Todos</div>
+    </div>
+
+    <div class="dock-item" onclick="switchTab('apps')" data-tab="apps">
+        📦
+        <div class="dock-tooltip">Aplicativos Disponíveis</div>
+    </div>
+
+    <div class="dock-item" onclick="switchTab('tools')" data-tab="tools">
+        🛠️
+        <div class="dock-tooltip">Ferramentas</div>
+    </div>
+
+</div>
 
 
 <!-- =========================
@@ -1265,737 +1319,485 @@
 
 let allApps = [];
 
-let filteredApps = [];
-
-let visibleApps = 8;
-
 let allTools = [];
 
+let currentTab = 'all';
+
+let searchTerm = '';
+
+let visibleAppsCount = 8;
+
 
 /* =========================
-   CARREGAR APLICATIVOS
+   CARREGAR DADOS
 ========================= */
 
-async function loadApps() {
+async function loadData() {
 
     try {
 
-        const response =
-            await fetch('app.json');
+        const resApps = await fetch('app.json');
 
+        if (resApps.ok) {
 
-        if (!response.ok) {
-
-            throw new Error(
-                'Erro ao carregar app.json'
-            );
+            allApps = await resApps.json();
 
         }
 
+    }
 
-        allApps =
-            await response.json();
+    catch (e) {
 
-
-        filteredApps =
-            allApps;
-
-
-        renderApps();
+        console.error('Erro ao carregar app.json', e);
 
     }
 
-    catch (error) {
-
-        console.error(error);
-
-
-        document
-            .getElementById(
-                'appsGrid'
-            )
-            .innerHTML = `
-
-                <div class="status-message">
-
-                    Não foi possível carregar
-                    os aplicativos.
-
-                    <br><br>
-
-                    Verifique se o arquivo
-                    <strong>app.json</strong>
-                    está no mesmo diretório.
-
-                </div>
-
-            `;
-
-    }
-
-}
-
-
-/* =========================
-   CARREGAR FERRAMENTAS
-========================= */
-
-async function loadTools() {
 
     try {
 
-        const response =
-            await fetch('tools.json');
+        const resTools = await fetch('tools.json');
 
+        if (resTools.ok) {
 
-        if (!response.ok) {
-
-            throw new Error(
-                'Erro ao carregar tools.json'
-            );
+            allTools = await resTools.json();
 
         }
 
+    }
 
-        allTools =
-            await response.json();
+    catch (e) {
 
-
-        renderTools();
+        console.error('Erro ao carregar tools.json', e);
 
     }
 
-    catch (error) {
 
-        console.error(error);
-
-
-        document
-            .getElementById(
-                'toolsGrid'
-            )
-            .innerHTML = `
-
-                <div class="status-message">
-
-                    Não foi possível carregar
-                    as ferramentas.
-
-                    <br><br>
-
-                    Verifique se o arquivo
-                    <strong>tools.json</strong>
-                    está no mesmo diretório.
-
-                </div>
-
-            `;
-
-    }
+    renderContent();
 
 }
 
 
 /* =========================
-   RENDERIZAR APLICATIVOS
+   TROCAR DE ABA
 ========================= */
 
-function renderApps() {
+function switchTab(tab) {
 
-    const grid =
-        document.getElementById(
-            'appsGrid'
-        );
+    currentTab = tab;
 
+    visibleAppsCount = 8;
 
-    if (
-        filteredApps.length === 0
-    ) {
 
-        grid.innerHTML = `
+    document.querySelectorAll('.dock-item').forEach(item => {
 
-            <div class="status-message">
-                Nenhum aplicativo encontrado.
-            </div>
+        item.classList.remove('active');
 
-        `;
+        if (item.getAttribute('data-tab') === tab) {
 
-
-        document
-            .getElementById(
-                'loadMoreContainer'
-            )
-            .style.display = 'none';
-
-
-        return;
-
-    }
-
-
-    const appsToShow =
-        filteredApps.slice(
-            0,
-            visibleApps
-        );
-
-
-    grid.innerHTML =
-        appsToShow
-        .map(app => `
-
-            <div
-                class="app-card"
-                onclick="openModal('${app.id}', 'app')"
-            >
-
-                <div class="app-info">
-
-                    <h3>
-                        ${app.nome}
-                    </h3>
-
-
-                    <div class="app-date">
-
-                        Atualizado em:
-                        ${app.data || '03/09/2026'}
-
-                    </div>
-
-                </div>
-
-
-                <div class="app-icon">
-
-                    ${
-                        app.icone
-
-                        ?
-
-                        `<img
-                            src="${app.icone}"
-                            alt="${app.nome}"
-                            onerror="this.parentElement.innerHTML='📦'"
-                        >`
-
-                        :
-
-                        '📦'
-                    }
-
-                </div>
-
-
-                <div class="card-footer">
-
-                    <button
-                        class="btn-details"
-                    >
-                        Ver Detalhes
-                    </button>
-
-                </div>
-
-            </div>
-
-        `)
-        .join('');
-
-
-    const loadMoreContainer =
-        document.getElementById(
-            'loadMoreContainer'
-        );
-
-
-    if (
-        visibleApps <
-        filteredApps.length
-    ) {
-
-        loadMoreContainer
-            .style.display = 'flex';
-
-    }
-
-    else {
-
-        loadMoreContainer
-            .style.display = 'none';
-
-    }
-
-}
-
-
-/* =========================
-   RENDERIZAR FERRAMENTAS
-========================= */
-
-function renderTools() {
-
-    const grid =
-        document.getElementById(
-            'toolsGrid'
-        );
-
-
-    if (
-        allTools.length === 0
-    ) {
-
-        grid.innerHTML = `
-
-            <div class="status-message">
-                Nenhuma ferramenta encontrada.
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    grid.innerHTML =
-        allTools
-        .map(tool => `
-
-            <div
-                class="app-card"
-                onclick="openModal('${tool.id}', 'tool')"
-            >
-
-                <div class="app-info">
-
-                    <h3>
-                        ${tool.nome}
-                    </h3>
-
-
-                    <div class="app-date">
-                        Atualizado em:
-                        ${tool.data || '03/09/2026'}
-                    </div>
-
-                </div>
-
-
-                <div class="app-icon">
-
-                    ${
-                        tool.icone
-
-                        ?
-
-                        `<img
-                            src="${tool.icone}"
-                            alt="${tool.nome}"
-                            onerror="this.parentElement.innerHTML='🛠️'"
-                        >`
-
-                        :
-
-                        '🛠️'
-                    }
-
-                </div>
-
-
-                <div class="card-footer">
-
-                    <button
-                        class="btn-details"
-                    >
-                        Ver Detalhes
-                    </button>
-
-                </div>
-
-            </div>
-
-        `)
-        .join('');
-
-}
-
-
-/* =========================
-   CARREGAR MAIS
-========================= */
-
-document
-    .getElementById(
-        'loadMoreBtn'
-    )
-    .addEventListener(
-        'click',
-        () => {
-
-            visibleApps += 8;
-
-            renderApps();
+            item.classList.add('active');
 
         }
+
+    });
+
+
+    renderContent();
+
+}
+
+
+/* =========================
+   RENDERIZAR CONTEÚDO PRINCIPAL
+========================= */
+
+function renderContent() {
+
+    const main = document.getElementById('mainContainer');
+
+    const term = searchTerm.toLowerCase().trim();
+
+
+    let filteredApps = allApps.filter(app =>
+
+        app.nome.toLowerCase().includes(term) ||
+
+        (app.data && app.data.toLowerCase().includes(term))
+
     );
+
+
+    let filteredTools = allTools.filter(tool =>
+
+        tool.nome.toLowerCase().includes(term) ||
+
+        (tool.data && tool.data.toLowerCase().includes(term))
+
+    );
+
+
+    let html = '';
+
+
+    if (currentTab === 'all') {
+
+        html += `<h1 class="section-title">Aplicativos Disponíveis</h1>`;
+
+        if (filteredApps.length === 0) {
+
+            html += `<div class="apps-grid"><div class="status-message">Nenhum aplicativo encontrado.</div></div>`;
+
+        } else {
+
+            const appsToShow = filteredApps.slice(0, visibleAppsCount);
+
+            html += `<div class="apps-grid">`;
+
+            appsToShow.forEach(app => {
+
+                html += buildCard(app, 'app');
+
+            });
+
+            html += `</div>`;
+
+
+            if (visibleAppsCount < filteredApps.length) {
+
+                html += `
+
+                    <div class="load-more-container">
+
+                        <button id="loadMoreBtn" onclick="loadMoreApps()">Carregar mais</button>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        html += `<h1 class="section-title" style="margin-top: 4rem;">Ferramentas</h1>`;
+
+        if (filteredTools.length === 0) {
+
+            html += `<div class="apps-grid"><div class="status-message">Nenhuma ferramenta encontrada.</div></div>`;
+
+        } else {
+
+            html += `<div class="apps-grid">`;
+
+            filteredTools.forEach(tool => {
+
+                html += buildCard(tool, 'tool');
+
+            });
+
+            html += `</div>`;
+
+        }
+
+    }
+
+    else if (currentTab === 'apps') {
+
+        html += `<h1 class="section-title">Aplicativos Disponíveis</h1>`;
+
+        if (filteredApps.length === 0) {
+
+            html += `<div class="apps-grid"><div class="status-message">Nenhum aplicativo encontrado.</div></div>`;
+
+        } else {
+
+            const appsToShow = filteredApps.slice(0, visibleAppsCount);
+
+            html += `<div class="apps-grid">`;
+
+            appsToShow.forEach(app => {
+
+                html += buildCard(app, 'app');
+
+            });
+
+            html += `</div>`;
+
+
+            if (visibleAppsCount < filteredApps.length) {
+
+                html += `
+
+                    <div class="load-more-container">
+
+                        <button id="loadMoreBtn" onclick="loadMoreApps()">Carregar mais</button>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+    }
+
+    else if (currentTab === 'tools') {
+
+        html += `<h1 class="section-title">Ferramentas</h1>`;
+
+        if (filteredTools.length === 0) {
+
+            html += `<div class="apps-grid"><div class="status-message">Nenhuma ferramenta encontrada.</div></div>`;
+
+        } else {
+
+            html += `<div class="apps-grid">`;
+
+            filteredTools.forEach(tool => {
+
+                html += buildCard(tool, 'tool');
+
+            });
+
+            html += `</div>`;
+
+        }
+
+    }
+
+
+    main.innerHTML = html;
+
+}
+
+
+function buildCard(item, type) {
+
+    const defaultIcon = type === 'tool' ? '🛠️' : '📦';
+
+    const iconHtml = item.icone
+
+        ? `<img src="${item.icone}" alt="${item.nome}" onerror="this.parentElement.innerHTML='${defaultIcon}'">`
+
+        : defaultIcon;
+
+
+    const dateText = item.data ? `Atualizado em: ${item.data}` : '';
+
+
+    return `
+
+        <div class="app-card" onclick="openModal('${item.id}', '${type}')">
+
+            <div class="app-info">
+
+                <h3>${item.nome}</h3>
+
+                <div class="app-date">${dateText}</div>
+
+            </div>
+
+            <div class="app-icon">
+
+                ${iconHtml}
+
+            </div>
+
+            <div class="card-footer">
+
+                <button class="btn-details">
+
+                    Ver Detalhes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+function loadMoreApps() {
+
+    visibleAppsCount += 8;
+
+    renderContent();
+
+}
+
+
+/* =========================
+   PESQUISA GLOBAL
+========================= */
+
+document.getElementById('searchInput').addEventListener('input', event => {
+
+    searchTerm = event.target.value;
+
+    visibleAppsCount = 8;
+
+    renderContent();
+
+});
 
 
 /* =========================
    MODAL
 ========================= */
 
-const modal =
-    document.getElementById(
-        'appModal'
-    );
+const modal = document.getElementById('appModal');
 
-
-const closeModalBtn =
-    document.getElementById(
-        'closeModal'
-    );
+const closeModalBtn = document.getElementById('closeModal');
 
 
 function openModal(id, type = 'app') {
 
     const item = type === 'tool'
+
         ? allTools.find(t => t.id == id)
+
         : allApps.find(a => a.id == id);
 
 
     if (!item) return;
 
 
-    document
-        .getElementById(
-            'modalName'
-        )
-        .textContent =
-            item.nome;
+    document.getElementById('modalName').textContent = item.nome;
 
 
     const linkValue = item.linkDownload || '#';
+
     const downloaderValue = item.downloader || '';
 
-    document
-        .getElementById(
-            'modalLinkInput'
-        )
-        .value =
-            linkValue;
 
+    document.getElementById('modalLinkInput').value = linkValue;
 
-    document
-        .getElementById(
-            'modalDownloadBtn'
-        )
-        .href =
-            linkValue;
+    document.getElementById('modalDownloadBtn').href = linkValue;
 
+    document.getElementById('modalDownloaderInput').value = downloaderValue;
 
-    document
-        .getElementById(
-            'modalDownloaderInput'
-        )
-        .value =
-            downloaderValue;
 
     const downloaderSection = document.getElementById('downloaderSectionBox');
 
     if (!downloaderValue) {
+
         downloaderSection.style.display = 'none';
+
     } else {
+
         downloaderSection.style.display = 'block';
+
     }
 
 
-    const iconContainer =
-        document.getElementById(
-            'modalIcon'
-        );
+    const iconContainer = document.getElementById('modalIcon');
 
     const defaultIcon = type === 'tool' ? '🛠️' : '📦';
+
 
     if (item.icone) {
 
         iconContainer.innerHTML = `
 
-            <img
-                src="${item.icone}"
-                alt="${item.nome}"
-                onerror="this.parentElement.innerHTML='${defaultIcon}'"
-            >
+            <img src="${item.icone}" alt="${item.nome}" onerror="this.parentElement.innerHTML='${defaultIcon}'">
 
         `;
 
-    }
+    } else {
 
-    else {
-
-        iconContainer.innerHTML =
-            defaultIcon;
+        iconContainer.innerHTML = defaultIcon;
 
     }
 
 
-    modal.classList.add(
-        'active'
-    );
+    modal.classList.add('active');
 
 }
 
-
-/* =========================
-   FECHAR MODAL
-========================= */
 
 function closeModal() {
 
-    modal.classList.remove(
-        'active'
-    );
+    modal.classList.remove('active');
 
 }
 
 
-closeModalBtn.addEventListener(
-    'click',
-    closeModal
-);
+closeModalBtn.addEventListener('click', closeModal);
 
 
-modal.addEventListener(
-    'click',
-    event => {
+modal.addEventListener('click', event => {
 
-        if (
-            event.target === modal
-        ) {
+    if (event.target === modal) {
 
-            closeModal();
-
-        }
+        closeModal();
 
     }
-);
+
+});
 
 
 /* =========================
-   COPIAR LINK
+   COPIAR LINKS / CÓDIGOS
 ========================= */
 
-document
-    .getElementById(
-        'copyLinkBtn'
-    )
-    .addEventListener(
-        'click',
-        async () => {
+function setupCopyButton(btnId, inputId) {
 
-            const input =
-                document.getElementById(
-                    'modalLinkInput'
-                );
+    document.getElementById(btnId).addEventListener('click', async () => {
 
+        const input = document.getElementById(inputId);
 
-            try {
+        try {
 
-                await navigator
-                    .clipboard
-                    .writeText(
-                        input.value
-                    );
+            await navigator.clipboard.writeText(input.value);
 
-            }
+        } catch {
 
-            catch {
+            input.select();
 
-                input.select();
-
-                document.execCommand(
-                    'copy'
-                );
-
-            }
-
-
-            const btn =
-                document.getElementById(
-                    'copyLinkBtn'
-                );
-
-
-            const original =
-                btn.textContent;
-
-
-            btn.textContent =
-                'Copiado!';
-
-
-            btn.style.backgroundColor =
-                '#10b981';
-
-
-            btn.style.color =
-                '#fff';
-
-
-            setTimeout(
-                () => {
-
-                    btn.textContent =
-                        original;
-
-                    btn.style.backgroundColor =
-                        '';
-
-                    btn.style.color =
-                        '';
-
-                },
-                2000
-            );
+            document.execCommand('copy');
 
         }
-    );
+
+
+        const btn = document.getElementById(btnId);
+
+        const original = btn.textContent;
+
+        btn.textContent = 'Copiado!';
+
+        btn.style.backgroundColor = '#10b981';
+
+        btn.style.color = '#fff';
+
+
+        setTimeout(() => {
+
+            btn.textContent = original;
+
+            btn.style.backgroundColor = '';
+
+            btn.style.color = '';
+
+        }, 2000);
+
+    });
+
+}
+
+
+setupCopyButton('copyLinkBtn', 'modalLinkInput');
+
+setupCopyButton('copyDownloaderBtn', 'modalDownloaderInput');
 
 
 /* =========================
-   COPIAR DOWNLOADER
+   INICIALIZAÇÃO
 ========================= */
 
-document
-    .getElementById(
-        'copyDownloaderBtn'
-    )
-    .addEventListener(
-        'click',
-        async () => {
-
-            const input =
-                document.getElementById(
-                    'modalDownloaderInput'
-                );
-
-
-            try {
-
-                await navigator
-                    .clipboard
-                    .writeText(
-                        input.value
-                    );
-
-            }
-
-            catch {
-
-                input.select();
-
-                document.execCommand(
-                    'copy'
-                );
-
-            }
-
-
-            const btn =
-                document.getElementById(
-                    'copyDownloaderBtn'
-                );
-
-
-            const original =
-                btn.textContent;
-
-
-            btn.textContent =
-                'Copiado!';
-
-
-            btn.style.backgroundColor =
-                '#10b981';
-
-
-            btn.style.color =
-                '#fff';
-
-
-            setTimeout(
-                () => {
-
-                    btn.textContent =
-                        original;
-
-                    btn.style.backgroundColor =
-                        '';
-
-                    btn.style.color =
-                        '';
-
-                },
-                2000
-            );
-
-        }
-    );
-
-
-/* =========================
-   PESQUISA
-========================= */
-
-document
-    .getElementById(
-        'searchInput'
-    )
-    .addEventListener(
-        'input',
-        event => {
-
-            const term =
-                event.target.value
-                    .toLowerCase()
-                    .trim();
-
-
-            filteredApps =
-                allApps.filter(
-                    app =>
-
-                        app.nome
-                            .toLowerCase()
-                            .includes(term)
-
-                        ||
-
-                        (
-                            app.data &&
-
-                            app.data
-                                .toLowerCase()
-                                .includes(term)
-                        )
-                );
-
-
-            visibleApps = 8;
-
-
-            renderApps();
-
-        }
-    );
-
-
-/* =========================
-   INICIAR
-========================= */
-
-loadApps();
-loadTools();
+loadData();
 
 </script>
 
