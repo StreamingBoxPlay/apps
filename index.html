@@ -1225,9 +1225,9 @@
             </div>
 
 
-            <div class="section-box">
+            <div class="section-box" id="downloaderSectionBox">
 
-                <div class="section-label">
+                <div class="section-label" id="modalDownloaderLabel">
                     Código Downloader
                 </div>
 
@@ -1446,7 +1446,7 @@ function renderApps() {
 
             <div
                 class="app-card"
-                onclick="openModal('${app.id}')"
+                onclick="openModal('${app.id}', 'app')"
             >
 
                 <div class="app-info">
@@ -1564,7 +1564,7 @@ function renderTools() {
 
             <div
                 class="app-card"
-                onclick="window.open('${tool.link || '#'}', '_blank')"
+                onclick="openModal('${tool.id}', 'tool')"
             >
 
                 <div class="app-info">
@@ -1656,16 +1656,14 @@ const closeModalBtn =
     );
 
 
-function openModal(appId) {
+function openModal(id, type = 'app') {
 
-    const app =
-        allApps.find(
-            a =>
-                a.id == appId
-        );
+    const item = type === 'tool'
+        ? allTools.find(t => t.id == id)
+        : allApps.find(a => a.id == id);
 
 
-    if (!app) return;
+    if (!item) return;
 
 
     document
@@ -1673,15 +1671,18 @@ function openModal(appId) {
             'modalName'
         )
         .textContent =
-            app.nome;
+            item.nome;
 
+
+    const linkValue = type === 'tool' ? (item.link || '#') : (item.linkDownload || '#');
+    const downloaderValue = type === 'tool' ? (item.codigo || item.downloader || '') : (item.downloader || '');
 
     document
         .getElementById(
             'modalLinkInput'
         )
         .value =
-            app.linkDownload || '';
+            linkValue;
 
 
     document
@@ -1689,7 +1690,7 @@ function openModal(appId) {
             'modalDownloadBtn'
         )
         .href =
-            app.linkDownload || '#';
+            linkValue;
 
 
     document
@@ -1697,7 +1698,22 @@ function openModal(appId) {
             'modalDownloaderInput'
         )
         .value =
-            app.downloader || '';
+            downloaderValue;
+
+    const downloaderSection = document.getElementById('downloaderSectionBox');
+    const downloaderLabel = document.getElementById('modalDownloaderLabel');
+
+    if (type === 'tool') {
+        downloaderLabel.textContent = 'Código / Referência';
+        if (!downloaderValue) {
+            downloaderSection.style.display = 'none';
+        } else {
+            downloaderSection.style.display = 'block';
+        }
+    } else {
+        downloaderLabel.textContent = 'Código Downloader';
+        downloaderSection.style.display = 'block';
+    }
 
 
     const iconContainer =
@@ -1705,15 +1721,16 @@ function openModal(appId) {
             'modalIcon'
         );
 
+    const defaultIcon = type === 'tool' ? '🛠️' : '📦';
 
-    if (app.icone) {
+    if (item.icone) {
 
         iconContainer.innerHTML = `
 
             <img
-                src="${app.icone}"
-                alt="${app.nome}"
-                onerror="this.parentElement.innerHTML='📦'"
+                src="${item.icone}"
+                alt="${item.nome}"
+                onerror="this.parentElement.innerHTML='${defaultIcon}'"
             >
 
         `;
@@ -1723,7 +1740,7 @@ function openModal(appId) {
     else {
 
         iconContainer.innerHTML =
-            '📦';
+            defaultIcon;
 
     }
 
