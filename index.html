@@ -2,10 +2,15 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>StreamingBoxPlay - Aplicativos e Ferramentas</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        StreamingBoxPlay - Download de Aplicativos
+    </title>
 
     <style>
 
@@ -44,6 +49,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
+
             min-height: 100vh;
 
             display: flex;
@@ -55,13 +61,16 @@
         ========================= */
 
         header {
-            background-color: rgba(10, 11, 16, 0.85);
+            background-color:
+                rgba(10, 11, 16, 0.85);
 
             backdrop-filter: blur(12px);
 
-            border-bottom: 1px solid var(--border-color);
+            border-bottom:
+                1px solid var(--border-color);
 
             position: sticky;
+
             top: 0;
 
             z-index: 100;
@@ -69,7 +78,10 @@
             padding: 1rem 2rem;
 
             display: flex;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
+
             align-items: center;
 
             gap: 20px;
@@ -77,27 +89,27 @@
 
         .logo-container {
             display: flex;
+
             align-items: center;
 
             gap: 16px;
 
             text-decoration: none;
-            color: var(--text-main);
 
-            min-width: 0;
+            color: var(--text-main);
         }
 
         .logo-img-wrapper {
             height: 60px;
 
             display: flex;
-            align-items: center;
 
-            flex-shrink: 0;
+            align-items: center;
         }
 
         .logo-img-wrapper img {
             height: 100%;
+
             width: auto;
 
             object-fit: contain;
@@ -105,6 +117,7 @@
 
         .logo-text-group {
             display: flex;
+
             flex-direction: column;
         }
 
@@ -131,7 +144,9 @@
                 );
 
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+            -webkit-text-fill-color:
+                transparent;
         }
 
         .text-play {
@@ -143,15 +158,19 @@
                 );
 
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+            -webkit-text-fill-color:
+                transparent;
         }
 
         .logo-subtitle {
             font-size: 0.8rem;
 
-            color: var(--text-muted);
+            color:
+                var(--text-muted);
 
-            letter-spacing: 0.5px;
+            letter-spacing:
+                0.5px;
         }
 
         /* =========================
@@ -162,25 +181,32 @@
             position: relative;
 
             width: 100%;
+
             max-width: 320px;
         }
 
         .search-box input {
             width: 100%;
 
-            background-color: var(--card-bg);
+            background-color:
+                var(--card-bg);
 
-            border: 1px solid var(--border-color);
+            border:
+                1px solid
+                var(--border-color);
 
             border-radius: 10px;
 
-            padding: 10px 16px 10px 40px;
+            padding:
+                10px 16px 10px 40px;
 
-            color: var(--text-main);
+            color:
+                var(--text-main);
 
             font-size: 0.95rem;
 
-            transition: all 0.3s ease;
+            transition:
+                all 0.3s ease;
         }
 
         .search-box input:focus {
@@ -198,19 +224,22 @@
             position: absolute;
 
             left: 12px;
+
             top: 50%;
 
             transform:
                 translateY(-50%);
 
             width: 18px;
+
             height: 18px;
 
-            fill: var(--text-muted);
+            fill:
+                var(--text-muted);
         }
 
         /* =========================
-           CONTEÚDO
+           MAIN
         ========================= */
 
         main {
@@ -222,11 +251,12 @@
 
             margin: 0 auto;
 
-            padding: 2.5rem 2rem;
+            padding:
+                2.5rem 2rem;
         }
 
         /* =========================
-           TÍTULOS
+           TÍTULO
         ========================= */
 
         .section-title {
@@ -242,7 +272,8 @@
 
             text-align: center;
 
-            color: var(--text-main);
+            color:
+                var(--text-main);
         }
 
         /* =========================
@@ -262,7 +293,7 @@
         }
 
         /* =========================
-           CARDS
+           CARD
         ========================= */
 
         .app-card {
@@ -294,7 +325,8 @@
 
             align-items: center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             text-align: center;
 
@@ -304,7 +336,12 @@
 
             box-shadow:
                 0 4px 15px
-                rgba(147, 51, 234, 0.1);
+                rgba(
+                    147,
+                    51,
+                    234,
+                    0.1
+                );
         }
 
         .app-card::before {
@@ -313,9 +350,11 @@
             position: absolute;
 
             top: 0;
+
             left: 0;
 
             width: 100%;
+
             height: 3px;
 
             background:
@@ -344,7 +383,12 @@
 
             box-shadow:
                 0 12px 30px -10px
-                rgba(147, 51, 234, 0.3);
+                rgba(
+                    147,
+                    51,
+                    234,
+                    0.3
+                );
         }
 
         .app-card:hover::before {
@@ -375,6 +419,7 @@
 
         .app-icon {
             width: 80px;
+
             height: 80px;
 
             border-radius: 16px;
@@ -385,6 +430,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             font-size: 2rem;
@@ -404,6 +450,7 @@
 
         .app-icon img {
             width: 100%;
+
             height: 100%;
 
             object-fit: cover;
@@ -430,7 +477,8 @@
                 1px solid
                 var(--accent-blue);
 
-            padding: 10px 20px;
+            padding:
+                10px 20px;
 
             border-radius: 8px;
 
@@ -444,8 +492,6 @@
                 all 0.3s ease;
 
             width: 100%;
-
-            text-align: center;
         }
 
         .app-card:hover .btn-details {
@@ -459,11 +505,16 @@
             border-color:
                 transparent;
 
-            color: #ffffff;
+            color: #fff;
 
             box-shadow:
                 0 4px 15px
-                rgba(147, 51, 234, 0.4);
+                rgba(
+                    147,
+                    51,
+                    234,
+                    0.4
+                );
         }
 
         /* =========================
@@ -480,7 +531,7 @@
             width: 100%;
         }
 
-        .load-more-btn {
+        #loadMoreBtn {
             background:
                 linear-gradient(
                     135deg,
@@ -494,7 +545,8 @@
 
             border-radius: 10px;
 
-            padding: 12px 30px;
+            padding:
+                12px 30px;
 
             font-size: 0.95rem;
 
@@ -507,43 +559,51 @@
 
             box-shadow:
                 0 5px 18px
-                rgba(147, 51, 234, 0.3);
+                rgba(
+                    147,
+                    51,
+                    234,
+                    0.3
+                );
         }
 
-        .load-more-btn:hover {
+        #loadMoreBtn:hover {
             transform:
                 translateY(-2px);
 
             box-shadow:
                 0 8px 25px
-                rgba(147, 51, 234, 0.45);
-        }
-
-        .load-more-btn:active {
-            transform:
-                scale(0.97);
+                rgba(
+                    147,
+                    51,
+                    234,
+                    0.45
+                );
         }
 
         /* =========================
-           SEÇÃO FERRAMENTAS
+           FERRAMENTAS
         ========================= */
 
-        .tools-section {
+        .tools-title {
             width: 100%;
+
+            text-align: center;
+
+            font-size: 1.75rem;
+
+            font-weight: 700;
 
             margin-top: 4rem;
 
-            padding-top: 2.5rem;
+            padding-top: 2rem;
 
             border-top:
                 1px solid
                 var(--border-color);
-        }
 
-        .tools-section .section-title {
-            text-align: center;
-
-            margin-bottom: 2rem;
+            color:
+                var(--text-main);
         }
 
         /* =========================
@@ -554,13 +614,20 @@
             position: fixed;
 
             top: 0;
+
             left: 0;
 
             width: 100%;
+
             height: 100%;
 
             background-color:
-                rgba(5, 6, 9, 0.8);
+                rgba(
+                    5,
+                    6,
+                    9,
+                    0.8
+                );
 
             backdrop-filter:
                 blur(6px);
@@ -568,6 +635,7 @@
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
             z-index: 1000;
@@ -610,17 +678,16 @@
 
             transition:
                 transform
-                0.3s
-                cubic-bezier(
-                    0.4,
-                    0,
-                    0.2,
-                    1
-                );
+                0.3s ease;
 
             box-shadow:
                 0 25px 50px -12px
-                rgba(147, 51, 234, 0.3);
+                rgba(
+                    147,
+                    51,
+                    234,
+                    0.3
+                );
         }
 
         .modal-overlay.active
@@ -633,6 +700,7 @@
             position: absolute;
 
             top: 1.25rem;
+
             right: 1.25rem;
 
             background:
@@ -644,6 +712,7 @@
                 var(--text-muted);
 
             width: 32px;
+
             height: 32px;
 
             border-radius: 50%;
@@ -651,17 +720,10 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             cursor: pointer;
-        }
-
-        .modal-close:hover {
-            background-color:
-                #26293d;
-
-            color:
-                var(--text-main);
         }
 
         .modal-header {
@@ -676,6 +738,7 @@
 
         .modal-icon {
             width: 64px;
+
             height: 64px;
 
             border-radius: 14px;
@@ -688,19 +751,15 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             font-size: 2rem;
-
-            border:
-                1px solid
-                var(--border-color);
-
-            flex-shrink: 0;
         }
 
         .modal-icon img {
             width: 100%;
+
             height: 100%;
 
             object-fit: cover;
@@ -710,8 +769,6 @@
             font-size: 1.25rem;
 
             font-weight: 600;
-
-            margin-bottom: 4px;
 
             color:
                 var(--accent-purple);
@@ -730,8 +787,6 @@
             flex-direction: column;
 
             gap: 16px;
-
-            margin-top: 1rem;
         }
 
         .section-box {
@@ -756,12 +811,6 @@
             margin-bottom: 6px;
 
             font-weight: 500;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                0.5px;
         }
 
         .action-row {
@@ -784,7 +833,8 @@
 
             border-radius: 8px;
 
-            padding: 8px 12px;
+            padding:
+                8px 12px;
 
             color:
                 var(--text-muted);
@@ -807,11 +857,8 @@
 
             border-radius: 8px;
 
-            padding: 0 14px;
-
-            font-size: 0.85rem;
-
-            font-weight: 500;
+            padding:
+                0 14px;
 
             cursor: pointer;
 
@@ -826,15 +873,13 @@
                     var(--accent-pink)
                 );
 
-            color: white;
+            color: #fff;
 
             border: none;
 
             border-radius: 8px;
 
             padding: 10px;
-
-            font-size: 0.9rem;
 
             font-weight: 600;
 
@@ -846,10 +891,7 @@
 
             display: flex;
 
-            align-items: center;
             justify-content: center;
-
-            gap: 8px;
 
             width: 100%;
 
@@ -857,7 +899,7 @@
         }
 
         /* =========================
-           MENSAGENS
+           STATUS
         ========================= */
 
         .status-message {
@@ -912,6 +954,7 @@
 
             .app-icon {
                 width: 70px;
+
                 height: 70px;
             }
 
@@ -941,10 +984,11 @@
 
             .app-icon {
                 width: 65px;
+
                 height: 65px;
             }
 
-            .section-title {
+            .tools-title {
                 font-size: 1.5rem;
             }
 
@@ -954,281 +998,244 @@
 
 </head>
 
+
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================= -->
 
-    <header>
+<header>
 
-        <a href="#" class="logo-container">
+    <a href="#"
+       class="logo-container">
 
-            <div class="logo-img-wrapper">
+        <div class="logo-img-wrapper">
 
-                <img
-                    src="icon.png"
-                    alt="Logo StreamingBoxPlay"
-                    onerror="this.style.display='none'"
-                >
+            <img
+                src="icon.png"
+                alt="Logo StreamingBoxPlay"
+                onerror="this.style.display='none'"
+            >
 
-            </div>
+        </div>
 
-            <div class="logo-text-group">
 
-                <span class="logo-title">
+        <div class="logo-text-group">
 
-                    <span class="text-stream">
-                        Streaming
-                    </span>
+            <span class="logo-title">
 
-                    <span class="text-box">
-                        Box
-                    </span>
-
-                    <span class="text-play">
-                        Play
-                    </span>
-
+                <span class="text-stream">
+                    Streaming
                 </span>
 
-                <span class="logo-subtitle">
-                    Seu universo de entretenimento
+                <span class="text-box">
+                    Box
                 </span>
 
-            </div>
+                <span class="text-play">
+                    Play
+                </span>
 
-        </a>
+            </span>
 
 
-        <div class="search-box">
-
-            <svg viewBox="0 0 24 24">
-
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5
-                6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79
-                l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99
-                5 9.5S7.01 5 9.5 5 14 7.01 14 9.5
-                11.99 14 9.5 14z"/>
-
-            </svg>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Pesquisar aplicativos..."
-            >
+            <span class="logo-subtitle">
+                Seu universo de entretenimento
+            </span>
 
         </div>
 
-    </header>
+    </a>
+
+
+    <div class="search-box">
+
+        <svg viewBox="0 0 24 24">
+
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5
+            6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79
+            l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99
+            5 9.5S7.01 5 9.5 5 14 7.01 14 9.5
+            11.99 14 9.5 14z"/>
+
+        </svg>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Pesquisar aplicativos..."
+        >
+
+    </div>
+
+</header>
+
+
+<main>
 
 
     <!-- =========================
-         CONTEÚDO
+         APLICATIVOS
     ========================= -->
 
-    <main>
+    <h1 class="section-title">
+        Aplicativos Disponíveis
+    </h1>
 
-        <!-- APLICATIVOS -->
-
-        <h1 class="section-title">
-            Aplicativos Disponíveis
-        </h1>
-
-
-        <div
-            id="appsGrid"
-            class="apps-grid"
-        >
-
-            <div class="status-message">
-                Carregando aplicativos...
-            </div>
-
-        </div>
-
-
-        <!-- CARREGAR MAIS APLICATIVOS -->
-
-        <div
-            id="appsLoadMoreContainer"
-            class="load-more-container"
-            style="display:none;"
-        >
-
-            <button
-                id="appsLoadMoreBtn"
-                class="load-more-btn"
-            >
-                Carregar mais
-            </button>
-
-        </div>
-
-
-        <!-- =========================
-             FERRAMENTAS
-        ========================= -->
-
-        <section class="tools-section">
-
-            <h1 class="section-title">
-                Ferramentas
-            </h1>
-
-
-            <div
-                id="toolsGrid"
-                class="apps-grid"
-            >
-
-                <div class="status-message">
-                    Carregando ferramentas...
-                </div>
-
-            </div>
-
-
-            <!-- CARREGAR MAIS FERRAMENTAS -->
-
-            <div
-                id="toolsLoadMoreContainer"
-                class="load-more-container"
-                style="display:none;"
-            >
-
-                <button
-                    id="toolsLoadMoreBtn"
-                    class="load-more-btn"
-                >
-                    Carregar mais
-                </button>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         MODAL
-    ========================= -->
 
     <div
-        id="appModal"
-        class="modal-overlay"
+        id="appsGrid"
+        class="apps-grid"
     >
 
-        <div class="modal-content">
+        <div class="status-message">
+            Carregando aplicativos...
+        </div>
 
-            <button
-                class="modal-close"
-                id="closeModal"
+    </div>
+
+
+    <!-- CARREGAR MAIS -->
+
+    <div
+        id="loadMoreContainer"
+        class="load-more-container"
+        style="display:none;"
+    >
+
+        <button id="loadMoreBtn">
+            Carregar mais
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         FERRAMENTAS
+         FINAL DA PÁGINA
+    ========================= -->
+
+    <div class="tools-title">
+        Ferramentas
+    </div>
+
+
+</main>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    id="appModal"
+    class="modal-overlay"
+>
+
+    <div class="modal-content">
+
+
+        <button
+            class="modal-close"
+            id="closeModal"
+        >
+            ✕
+        </button>
+
+
+        <div class="modal-header">
+
+
+            <div
+                class="modal-icon"
+                id="modalIcon"
             >
-                ✕
-            </button>
+                📦
+            </div>
 
 
-            <div class="modal-header">
+            <div class="modal-title-area">
+
+                <h2 id="modalName">
+                    Nome do App
+                </h2>
 
                 <div
-                    class="modal-icon"
-                    id="modalIcon"
+                    class="modal-meta"
+                    id="modalMeta"
                 >
-                    📦
-                </div>
-
-
-                <div class="modal-title-area">
-
-                    <h2 id="modalName">
-                        Nome do App
-                    </h2>
-
-                    <div
-                        class="modal-meta"
-                        id="modalMeta"
-                    >
-                        StreamingBoxPlay Oficial
-                    </div>
-
+                    StreamingBoxPlay Oficial
                 </div>
 
             </div>
 
-
-            <div class="modal-sections">
-
-                <!-- DOWNLOAD -->
-
-                <div class="section-box">
-
-                    <div class="section-label">
-                        Link de Download Direto
-                    </div>
+        </div>
 
 
-                    <div class="action-row">
-
-                        <input
-                            type="text"
-                            id="modalLinkInput"
-                            class="copy-input"
-                            readonly
-                        >
-
-                        <button
-                            class="btn-copy"
-                            id="copyLinkBtn"
-                        >
-                            Copiar Link
-                        </button>
-
-                    </div>
+        <div class="modal-sections">
 
 
-                    <a
-                        href="#"
-                        id="modalDownloadBtn"
-                        class="btn-download-primary"
-                        target="_blank"
+            <div class="section-box">
+
+                <div class="section-label">
+                    Link de Download Direto
+                </div>
+
+
+                <div class="action-row">
+
+                    <input
+                        type="text"
+                        id="modalLinkInput"
+                        class="copy-input"
+                        readonly
                     >
 
-                        Baixar Agora
 
-                    </a>
+                    <button
+                        class="btn-copy"
+                        id="copyLinkBtn"
+                    >
+                        Copiar Link
+                    </button>
 
                 </div>
 
 
-                <!-- DOWNLOADER -->
+                <a
+                    href="#"
+                    id="modalDownloadBtn"
+                    class="btn-download-primary"
+                    target="_blank"
+                >
+                    Baixar Agora
+                </a>
 
-                <div class="section-box">
-
-                    <div class="section-label">
-                        Código Downloader
-                    </div>
+            </div>
 
 
-                    <div class="action-row">
+            <div class="section-box">
 
-                        <input
-                            type="text"
-                            id="modalDownloaderInput"
-                            class="copy-input"
-                            readonly
-                        >
+                <div class="section-label">
+                    Código Downloader
+                </div>
 
-                        <button
-                            class="btn-copy"
-                            id="copyDownloaderBtn"
-                        >
-                            Copiar Código
-                        </button>
 
-                    </div>
+                <div class="action-row">
+
+                    <input
+                        type="text"
+                        id="modalDownloaderInput"
+                        class="copy-input"
+                        readonly
+                    >
+
+
+                    <button
+                        class="btn-copy"
+                        id="copyDownloaderBtn"
+                    >
+                        Copiar Código
+                    </button>
 
                 </div>
 
@@ -1238,749 +1245,408 @@
 
     </div>
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
-    <script>
-
-        /* =========================
-           CONFIGURAÇÃO
-        ========================= */
-
-        const ITEMS_PER_PAGE = 8;
+</div>
 
 
-        let allApps = [];
-
-        let filteredApps = [];
-
-        let visibleApps = ITEMS_PER_PAGE;
+<script>
 
 
-        let allTools = [];
+let allApps = [];
 
-        let filteredTools = [];
+let filteredApps = [];
 
-        let visibleTools = ITEMS_PER_PAGE;
+let visibleApps = 8;
 
 
-        /* =========================
-           ELEMENTOS
-        ========================= */
+/* =========================
+   CARREGAR APLICATIVOS
+========================= */
 
-        const appsGrid =
-            document.getElementById(
+async function loadApps() {
+
+    try {
+
+        const response =
+            await fetch('app.json');
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                'Erro ao carregar app.json'
+            );
+
+        }
+
+
+        allApps =
+            await response.json();
+
+
+        filteredApps =
+            allApps;
+
+
+        renderApps();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        document
+            .getElementById(
                 'appsGrid'
-            );
+            )
+            .innerHTML = `
 
-        const toolsGrid =
-            document.getElementById(
-                'toolsGrid'
-            );
+                <div class="status-message">
 
+                    Não foi possível carregar
+                    os aplicativos.
 
-        const appsLoadMoreContainer =
-            document.getElementById(
-                'appsLoadMoreContainer'
-            );
+                    <br><br>
 
-        const toolsLoadMoreContainer =
-            document.getElementById(
-                'toolsLoadMoreContainer'
-            );
-
-
-        /* =========================
-           APLICATIVOS
-        ========================= */
-
-        async function loadApps() {
-
-            try {
-
-                const response =
-                    await fetch(
-                        'app.json'
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Erro ao carregar app.json'
-                    );
-
-                }
-
-
-                allApps =
-                    await response.json();
-
-
-                filteredApps =
-                    allApps;
-
-
-                renderApps();
-
-            }
-
-            catch (error) {
-
-                console.error(error);
-
-
-                appsGrid.innerHTML = `
-
-                    <div class="status-message">
-
-                        Não foi possível carregar
-                        os aplicativos.
-
-                        <br><br>
-
-                        Verifique se o arquivo
-                        <strong>app.json</strong>
-                        está no mesmo diretório.
-
-                    </div>
-
-                `;
-
-            }
-
-        }
-
-
-        function renderApps() {
-
-            if (
-                filteredApps.length === 0
-            ) {
-
-                appsGrid.innerHTML = `
-
-                    <div class="status-message">
-                        Nenhum aplicativo encontrado.
-                    </div>
-
-                `;
-
-
-                appsLoadMoreContainer
-                    .style.display = 'none';
-
-
-                return;
-
-            }
-
-
-            const appsToShow =
-                filteredApps.slice(
-                    0,
-                    visibleApps
-                );
-
-
-            appsGrid.innerHTML =
-                appsToShow.map(
-                    app => createCard(
-                        app,
-                        'app'
-                    )
-                ).join('');
-
-
-            if (
-                visibleApps <
-                filteredApps.length
-            ) {
-
-                appsLoadMoreContainer
-                    .style.display = 'flex';
-
-            }
-
-            else {
-
-                appsLoadMoreContainer
-                    .style.display = 'none';
-
-            }
-
-        }
-
-
-        /* =========================
-           FERRAMENTAS
-        ========================= */
-
-        async function loadTools() {
-
-            try {
-
-                const response =
-                    await fetch(
-                        'tools.json'
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Erro ao carregar tools.json'
-                    );
-
-                }
-
-
-                allTools =
-                    await response.json();
-
-
-                filteredTools =
-                    allTools;
-
-
-                renderTools();
-
-            }
-
-            catch (error) {
-
-                console.error(error);
-
-
-                toolsGrid.innerHTML = `
-
-                    <div class="status-message">
-
-                        Não foi possível carregar
-                        as ferramentas.
-
-                        <br><br>
-
-                        Verifique se o arquivo
-                        <strong>tools.json</strong>
-                        está no mesmo diretório.
-
-                    </div>
-
-                `;
-
-            }
-
-        }
-
-
-        function renderTools() {
-
-            if (
-                filteredTools.length === 0
-            ) {
-
-                toolsGrid.innerHTML = `
-
-                    <div class="status-message">
-                        Nenhuma ferramenta encontrada.
-                    </div>
-
-                `;
-
-
-                toolsLoadMoreContainer
-                    .style.display = 'none';
-
-
-                return;
-
-            }
-
-
-            const toolsToShow =
-                filteredTools.slice(
-                    0,
-                    visibleTools
-                );
-
-
-            toolsGrid.innerHTML =
-                toolsToShow.map(
-                    tool => createCard(
-                        tool,
-                        'tool'
-                    )
-                ).join('');
-
-
-            if (
-                visibleTools <
-                filteredTools.length
-            ) {
-
-                toolsLoadMoreContainer
-                    .style.display = 'flex';
-
-            }
-
-            else {
-
-                toolsLoadMoreContainer
-                    .style.display = 'none';
-
-            }
-
-        }
-
-
-        /* =========================
-           CRIAR CARD
-        ========================= */
-
-        function createCard(
-            item,
-            type
-        ) {
-
-            const id =
-                item.id ??
-                item.nome ??
-                Math.random();
-
-
-            const nome =
-                item.nome ??
-                item.name ??
-                'Sem nome';
-
-
-            const data =
-                item.data ??
-                item.dataAtualizacao ??
-                '';
-
-
-            const icone =
-                item.icone ??
-                item.icon ??
-                '';
-
-
-            return `
-
-                <div
-                    class="app-card"
-                    onclick="openModal('${escapeHtml(String(id))}', '${type}')"
-                >
-
-                    <div class="app-info">
-
-                        <h3>
-                            ${escapeHtml(nome)}
-                        </h3>
-
-
-                        ${
-                            data
-                            ?
-                            `
-                            <div class="app-date">
-
-                                Atualizado em:
-                                ${escapeHtml(data)}
-
-                            </div>
-                            `
-                            :
-                            ''
-                        }
-
-                    </div>
-
-
-                    <div class="app-icon">
-
-                        ${
-                            icone
-                            ?
-                            `
-                            <img
-                                src="${escapeHtml(icone)}"
-                                alt="${escapeHtml(nome)}"
-                                onerror="this.parentElement.innerHTML='🛠️'"
-                            >
-                            `
-                            :
-                            '🛠️'
-                        }
-
-                    </div>
-
-
-                    <div class="card-footer">
-
-                        <button
-                            class="btn-details"
-                        >
-                            Ver Detalhes
-                        </button>
-
-                    </div>
+                    Verifique se o arquivo
+                    <strong>app.json</strong>
+                    está no mesmo diretório.
 
                 </div>
 
             `;
 
-        }
+    }
+
+}
 
 
-        /* =========================
-           ESCAPAR HTML
-        ========================= */
+/* =========================
+   RENDERIZAR
+========================= */
 
-        function escapeHtml(value) {
+function renderApps() {
 
-            return String(value)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-
-        }
+    const grid =
+        document.getElementById(
+            'appsGrid'
+        );
 
 
-        /* =========================
-           CARREGAR MAIS APPS
-        ========================= */
+    if (
+        filteredApps.length === 0
+    ) {
+
+        grid.innerHTML = `
+
+            <div class="status-message">
+                Nenhum aplicativo encontrado.
+            </div>
+
+        `;
+
 
         document
             .getElementById(
-                'appsLoadMoreBtn'
+                'loadMoreContainer'
             )
-            .addEventListener(
-                'click',
-                () => {
-
-                    visibleApps +=
-                        ITEMS_PER_PAGE;
-
-                    renderApps();
-
-                }
-            );
+            .style.display = 'none';
 
 
-        /* =========================
-           CARREGAR MAIS FERRAMENTAS
-        ========================= */
+        return;
 
-        document
-            .getElementById(
-                'toolsLoadMoreBtn'
-            )
-            .addEventListener(
-                'click',
-                () => {
-
-                    visibleTools +=
-                        ITEMS_PER_PAGE;
-
-                    renderTools();
-
-                }
-            );
+    }
 
 
-        /* =========================
-           MODAL
-        ========================= */
-
-        const modal =
-            document.getElementById(
-                'appModal'
-            );
+    const appsToShow =
+        filteredApps.slice(
+            0,
+            visibleApps
+        );
 
 
-        const closeModalBtn =
-            document.getElementById(
-                'closeModal'
-            );
+    grid.innerHTML =
+        appsToShow
+        .map(app => `
+
+            <div
+                class="app-card"
+                onclick="openModal('${app.id}')"
+            >
+
+                <div class="app-info">
+
+                    <h3>
+                        ${app.nome}
+                    </h3>
 
 
-        function openModal(
-            itemId,
-            type
-        ) {
+                    <div class="app-date">
 
-            const list =
-                type === 'tool'
-                    ? allTools
-                    : allApps;
+                        Atualizado em:
+                        ${app.data || '02/09/2026'}
 
+                    </div>
 
-            const item =
-                list.find(
-                    item =>
-                        String(
-                            item.id ??
-                            item.nome ??
-                            ''
-                        ) ===
-                        String(itemId)
-                );
+                </div>
 
 
-            if (!item) return;
+                <div class="app-icon">
+
+                    ${
+                        app.icone
+
+                        ?
+
+                        `<img
+                            src="${app.icone}"
+                            alt="${app.nome}"
+                            onerror="this.parentElement.innerHTML='📦'"
+                        >`
+
+                        :
+
+                        '📦'
+                    }
+
+                </div>
 
 
-            const nome =
-                item.nome ??
-                item.name ??
-                'Item';
+                <div class="card-footer">
 
-
-            const link =
-                item.linkDownload ??
-                item.link ??
-                item.url ??
-                '';
-
-
-            const downloader =
-                item.downloader ??
-                item.codigo ??
-                item.code ??
-                '';
-
-
-            document
-                .getElementById(
-                    'modalName'
-                )
-                .textContent = nome;
-
-
-            document
-                .getElementById(
-                    'modalMeta'
-                )
-                .textContent =
-                    type === 'tool'
-                        ? 'Ferramenta StreamingBoxPlay'
-                        : 'StreamingBoxPlay Oficial';
-
-
-            document
-                .getElementById(
-                    'modalLinkInput'
-                )
-                .value = link;
-
-
-            document
-                .getElementById(
-                    'modalDownloadBtn'
-                )
-                .href =
-                    link || '#';
-
-
-            document
-                .getElementById(
-                    'modalDownloaderInput'
-                )
-                .value =
-                    downloader;
-
-
-            const iconContainer =
-                document.getElementById(
-                    'modalIcon'
-                );
-
-
-            const icone =
-                item.icone ??
-                item.icon ??
-                '';
-
-
-            if (icone) {
-
-                iconContainer.innerHTML = `
-
-                    <img
-                        src="${escapeHtml(icone)}"
-                        alt="${escapeHtml(nome)}"
-                        onerror="this.parentElement.innerHTML='📦'"
+                    <button
+                        class="btn-details"
                     >
+                        Ver Detalhes
+                    </button>
 
-                `;
+                </div>
 
-            }
+            </div>
 
-            else {
-
-                iconContainer.innerHTML =
-                    type === 'tool'
-                        ? '🛠️'
-                        : '📦';
-
-            }
+        `)
+        .join('');
 
 
-            modal.classList.add(
-                'active'
-            );
-
-        }
-
-
-        function closeModal() {
-
-            modal.classList.remove(
-                'active'
-            );
-
-        }
-
-
-        closeModalBtn.addEventListener(
-            'click',
-            closeModal
+    const loadMoreContainer =
+        document.getElementById(
+            'loadMoreContainer'
         );
 
 
-        modal.addEventListener(
-            'click',
-            event => {
+    if (
+        visibleApps <
+        filteredApps.length
+    ) {
 
-                if (
-                    event.target === modal
-                ) {
+        loadMoreContainer
+            .style.display = 'flex';
 
-                    closeModal();
+    }
 
-                }
+    else {
 
-            }
+        loadMoreContainer
+            .style.display = 'none';
+
+    }
+
+}
+
+
+/* =========================
+   CARREGAR MAIS
+========================= */
+
+document
+    .getElementById(
+        'loadMoreBtn'
+    )
+    .addEventListener(
+        'click',
+        () => {
+
+            visibleApps += 8;
+
+            renderApps();
+
+        }
+    );
+
+
+/* =========================
+   MODAL
+========================= */
+
+const modal =
+    document.getElementById(
+        'appModal'
+    );
+
+
+const closeModalBtn =
+    document.getElementById(
+        'closeModal'
+    );
+
+
+function openModal(appId) {
+
+    const app =
+        allApps.find(
+            a =>
+                a.id == appId
         );
 
 
-        /* =========================
-           COPIAR LINK
-        ========================= */
-
-        document
-            .getElementById(
-                'copyLinkBtn'
-            )
-            .addEventListener(
-                'click',
-                async () => {
-
-                    const input =
-                        document.getElementById(
-                            'modalLinkInput'
-                        );
+    if (!app) return;
 
 
-                    await copyText(
-                        input.value
-                    );
+    document
+        .getElementById(
+            'modalName'
+        )
+        .textContent =
+            app.nome;
 
 
-                    showCopied(
-                        'copyLinkBtn',
-                        'Copiado!'
-                    );
-
-                }
-            );
-
-
-        /* =========================
-           COPIAR DOWNLOADER
-        ========================= */
-
-        document
-            .getElementById(
-                'copyDownloaderBtn'
-            )
-            .addEventListener(
-                'click',
-                async () => {
-
-                    const input =
-                        document.getElementById(
-                            'modalDownloaderInput'
-                        );
+    document
+        .getElementById(
+            'modalLinkInput'
+        )
+        .value =
+            app.linkDownload || '';
 
 
-                    await copyText(
-                        input.value
-                    );
+    document
+        .getElementById(
+            'modalDownloadBtn'
+        )
+        .href =
+            app.linkDownload || '#';
 
 
-                    showCopied(
-                        'copyDownloaderBtn',
-                        'Copiado!'
-                    );
+    document
+        .getElementById(
+            'modalDownloaderInput'
+        )
+        .value =
+            app.downloader || '';
 
-                }
-            );
+
+    const iconContainer =
+        document.getElementById(
+            'modalIcon'
+        );
 
 
-        async function copyText(
-            text
+    if (app.icone) {
+
+        iconContainer.innerHTML = `
+
+            <img
+                src="${app.icone}"
+                alt="${app.nome}"
+                onerror="this.parentElement.innerHTML='📦'"
+            >
+
+        `;
+
+    }
+
+    else {
+
+        iconContainer.innerHTML =
+            '📦';
+
+    }
+
+
+    modal.classList.add(
+        'active'
+    );
+
+}
+
+
+/* =========================
+   FECHAR MODAL
+========================= */
+
+function closeModal() {
+
+    modal.classList.remove(
+        'active'
+    );
+
+}
+
+
+closeModalBtn.addEventListener(
+    'click',
+    closeModal
+);
+
+
+modal.addEventListener(
+    'click',
+    event => {
+
+        if (
+            event.target === modal
         ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   COPIAR LINK
+========================= */
+
+document
+    .getElementById(
+        'copyLinkBtn'
+    )
+    .addEventListener(
+        'click',
+        async () => {
+
+            const input =
+                document.getElementById(
+                    'modalLinkInput'
+                );
+
 
             try {
 
                 await navigator
                     .clipboard
-                    .writeText(text);
+                    .writeText(
+                        input.value
+                    );
 
             }
 
             catch {
 
-                const textarea =
-                    document.createElement(
-                        'textarea'
-                    );
-
-                textarea.value = text;
-
-                document.body.appendChild(
-                    textarea
-                );
-
-                textarea.select();
+                input.select();
 
                 document.execCommand(
                     'copy'
                 );
 
-                textarea.remove();
-
             }
 
-        }
-
-
-        function showCopied(
-            buttonId,
-            text
-        ) {
 
             const btn =
                 document.getElementById(
-                    buttonId
+                    'copyLinkBtn'
                 );
 
 
@@ -1989,11 +1655,12 @@
 
 
             btn.textContent =
-                text;
+                'Copiado!';
 
 
             btn.style.backgroundColor =
                 '#10b981';
+
 
             btn.style.color =
                 '#fff';
@@ -2016,110 +1683,145 @@
             );
 
         }
+    );
 
 
-        /* =========================
-           PESQUISA
-        ========================= */
+/* =========================
+   COPIAR DOWNLOADER
+========================= */
 
-        document
-            .getElementById(
-                'searchInput'
-            )
-            .addEventListener(
-                'input',
-                event => {
+document
+    .getElementById(
+        'copyDownloaderBtn'
+    )
+    .addEventListener(
+        'click',
+        async () => {
 
-                    const term =
-                        event.target.value
-                            .toLowerCase()
-                            .trim();
-
-
-                    filteredApps =
-                        allApps.filter(
-                            app => {
-
-                                const nome =
-                                    String(
-                                        app.nome ??
-                                        app.name ??
-                                        ''
-                                    )
-                                    .toLowerCase();
+            const input =
+                document.getElementById(
+                    'modalDownloaderInput'
+                );
 
 
-                                const data =
-                                    String(
-                                        app.data ??
-                                        ''
-                                    )
-                                    .toLowerCase();
+            try {
+
+                await navigator
+                    .clipboard
+                    .writeText(
+                        input.value
+                    );
+
+            }
+
+            catch {
+
+                input.select();
+
+                document.execCommand(
+                    'copy'
+                );
+
+            }
 
 
-                                return (
-                                    nome.includes(term) ||
-                                    data.includes(term)
-                                );
-
-                            }
-                        );
+            const btn =
+                document.getElementById(
+                    'copyDownloaderBtn'
+                );
 
 
-                    filteredTools =
-                        allTools.filter(
-                            tool => {
-
-                                const nome =
-                                    String(
-                                        tool.nome ??
-                                        tool.name ??
-                                        ''
-                                    )
-                                    .toLowerCase();
+            const original =
+                btn.textContent;
 
 
-                                const data =
-                                    String(
-                                        tool.data ??
-                                        ''
-                                    )
-                                    .toLowerCase();
+            btn.textContent =
+                'Copiado!';
 
 
-                                return (
-                                    nome.includes(term) ||
-                                    data.includes(term)
-                                );
-
-                            }
-                        );
+            btn.style.backgroundColor =
+                '#10b981';
 
 
-                    visibleApps =
-                        ITEMS_PER_PAGE;
-
-                    visibleTools =
-                        ITEMS_PER_PAGE;
+            btn.style.color =
+                '#fff';
 
 
-                    renderApps();
+            setTimeout(
+                () => {
 
-                    renderTools();
+                    btn.textContent =
+                        original;
 
-                }
+                    btn.style.backgroundColor =
+                        '';
+
+                    btn.style.color =
+                        '';
+
+                },
+                2000
             );
 
+        }
+    );
 
-        /* =========================
-           INICIAR
-        ========================= */
 
-        loadApps();
+/* =========================
+   PESQUISA
+========================= */
 
-        loadTools();
+document
+    .getElementById(
+        'searchInput'
+    )
+    .addEventListener(
+        'input',
+        event => {
 
-    </script>
+            const term =
+                event.target.value
+                    .toLowerCase()
+                    .trim();
+
+
+            filteredApps =
+                allApps.filter(
+                    app =>
+
+                        app.nome
+                            .toLowerCase()
+                            .includes(term)
+
+                        ||
+
+                        (
+                            app.data &&
+
+                            app.data
+                                .toLowerCase()
+                                .includes(term)
+                        )
+                );
+
+
+            visibleApps = 8;
+
+
+            renderApps();
+
+        }
+    );
+
+
+/* =========================
+   INICIAR
+========================= */
+
+loadApps();
+
+</script>
+
 
 </body>
 
