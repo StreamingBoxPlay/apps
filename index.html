@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamingBoxPlay - Download de Aplicativos</title>
+
+    <title>StreamingBoxPlay - Aplicativos e Ferramentas</title>
 
     <style>
+
         :root {
             --bg-color: #0a0b10;
             --card-bg: #131520;
             --card-hover: #1c1f2e;
             --border-color: #26293d;
             --accent-border: #9333ea;
+
             --text-main: #f1f1f3;
             --text-muted: #9ca3af;
+
             --accent-blue: #3b82f6;
             --accent-purple: #9333ea;
             --accent-pink: #ec4899;
             --accent-orange: #f97316;
+
             --success: #10b981;
         }
 
@@ -25,49 +31,75 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont,
-                'Segoe UI', Roboto, sans-serif;
+
+            font-family:
+                'Inter',
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI',
+                Roboto,
+                sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
+
             display: flex;
             flex-direction: column;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
             background-color: rgba(10, 11, 16, 0.85);
+
             backdrop-filter: blur(12px);
+
             border-bottom: 1px solid var(--border-color);
+
             position: sticky;
             top: 0;
+
             z-index: 100;
+
             padding: 1rem 2rem;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            gap: 20px;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
+
             gap: 16px;
+
             text-decoration: none;
             color: var(--text-main);
+
+            min-width: 0;
         }
 
         .logo-img-wrapper {
             height: 60px;
+
             display: flex;
             align-items: center;
+
+            flex-shrink: 0;
         }
 
         .logo-img-wrapper img {
             height: 100%;
             width: auto;
+
             object-fit: contain;
         }
 
@@ -78,8 +110,11 @@
 
         .logo-title {
             font-size: 1.5rem;
+
             font-weight: 800;
+
             letter-spacing: -0.5px;
+
             line-height: 1.2;
         }
 
@@ -88,122 +123,228 @@
         }
 
         .text-box {
-            background: linear-gradient(90deg, #9333ea, #ec4899);
+            background:
+                linear-gradient(
+                    90deg,
+                    #9333ea,
+                    #ec4899
+                );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .text-play {
-            background: linear-gradient(90deg, #ec4899, #f97316);
+            background:
+                linear-gradient(
+                    90deg,
+                    #ec4899,
+                    #f97316
+                );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .logo-subtitle {
             font-size: 0.8rem;
+
             color: var(--text-muted);
+
             letter-spacing: 0.5px;
         }
 
-        /* PESQUISA */
+        /* =========================
+           PESQUISA
+        ========================= */
+
         .search-box {
             position: relative;
+
             width: 100%;
             max-width: 320px;
         }
 
         .search-box input {
             width: 100%;
+
             background-color: var(--card-bg);
+
             border: 1px solid var(--border-color);
+
             border-radius: 10px;
+
             padding: 10px 16px 10px 40px;
+
             color: var(--text-main);
+
             font-size: 0.95rem;
+
             transition: all 0.3s ease;
         }
 
         .search-box input:focus {
             outline: none;
-            border-color: var(--accent-border);
-            box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
+
+            border-color:
+                var(--accent-border);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(147, 51, 234, 0.15);
         }
 
         .search-box svg {
             position: absolute;
+
             left: 12px;
             top: 50%;
-            transform: translateY(-50%);
+
+            transform:
+                translateY(-50%);
+
             width: 18px;
             height: 18px;
+
             fill: var(--text-muted);
         }
 
-        /* MAIN */
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
         main {
             flex: 1;
+
             max-width: 1280px;
+
             width: 100%;
+
             margin: 0 auto;
+
             padding: 2.5rem 2rem;
         }
 
+        /* =========================
+           TÍTULOS
+        ========================= */
+
         .section-title {
+            width: 100%;
+
             font-size: 1.75rem;
+
             font-weight: 700;
+
             margin-bottom: 2rem;
+
             letter-spacing: -0.5px;
+
             text-align: center;
+
             color: var(--text-main);
         }
 
-        /* GRID */
+        /* =========================
+           GRID
+        ========================= */
+
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    auto-fill,
+                    minmax(260px, 1fr)
+                );
+
             gap: 1.5rem;
         }
 
-        /* CARD */
+        /* =========================
+           CARDS
+        ========================= */
+
         .app-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--accent-border);
+            background-color:
+                var(--card-bg);
+
+            border:
+                1px solid
+                var(--accent-border);
+
             border-radius: 14px;
+
             padding: 1.5rem;
+
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            transition:
+                all 0.3s
+                cubic-bezier(
+                    0.4,
+                    0,
+                    0.2,
+                    1
+                );
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             justify-content: space-between;
+
             text-align: center;
+
             position: relative;
+
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.1);
+
+            box-shadow:
+                0 4px 15px
+                rgba(147, 51, 234, 0.1);
         }
 
         .app-card::before {
             content: '';
+
             position: absolute;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 3px;
-            background: linear-gradient(
-                90deg,
-                var(--accent-purple),
-                var(--accent-pink),
-                var(--accent-orange)
-            );
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent-purple),
+                    var(--accent-pink),
+                    var(--accent-orange)
+                );
+
             opacity: 0;
-            transition: opacity 0.3s ease;
+
+            transition:
+                opacity 0.3s ease;
         }
 
         .app-card:hover {
-            transform: translateY(-6px);
-            background-color: var(--card-hover);
-            border-color: #a855f7;
-            box-shadow: 0 12px 30px -10px rgba(147, 51, 234, 0.3);
+            transform:
+                translateY(-6px);
+
+            background-color:
+                var(--card-hover);
+
+            border-color:
+                #a855f7;
+
+            box-shadow:
+                0 12px 30px -10px
+                rgba(147, 51, 234, 0.3);
         }
 
         .app-card:hover::before {
@@ -212,290 +353,537 @@
 
         .app-info h3 {
             font-size: 1.2rem;
+
             font-weight: 600;
+
             margin-bottom: 6px;
-            color: var(--accent-purple);
+
+            color:
+                var(--accent-purple);
         }
 
         .app-date {
             font-size: 0.8rem;
-            color: var(--accent-orange);
+
+            color:
+                var(--accent-orange);
+
             margin-bottom: 1.2rem;
+
             font-weight: 500;
         }
 
         .app-icon {
             width: 80px;
             height: 80px;
+
             border-radius: 16px;
-            background-color: #1c1f2e;
+
+            background-color:
+                #1c1f2e;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             font-size: 2rem;
+
             overflow: hidden;
-            border: 1px solid var(--border-color);
+
+            border:
+                1px solid
+                var(--border-color);
+
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+            box-shadow:
+                0 4px 10px
+                rgba(0, 0, 0, 0.3);
         }
 
         .app-icon img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
         }
 
         .card-footer {
             width: 100%;
+
             padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
+
+            border-top:
+                1px solid
+                var(--border-color);
         }
 
         .btn-details {
-            background-color: transparent;
-            color: var(--accent-blue);
-            border: 1px solid var(--accent-blue);
+            background-color:
+                transparent;
+
+            color:
+                var(--accent-blue);
+
+            border:
+                1px solid
+                var(--accent-blue);
+
             padding: 10px 20px;
+
             border-radius: 8px;
+
             font-size: 0.9rem;
+
             font-weight: 500;
+
             cursor: pointer;
-            transition: all 0.3s ease;
+
+            transition:
+                all 0.3s ease;
+
             width: 100%;
+
             text-align: center;
         }
 
         .app-card:hover .btn-details {
-            background: linear-gradient(
-                135deg,
-                var(--accent-purple),
-                var(--accent-pink)
-            );
-            border-color: transparent;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent-purple),
+                    var(--accent-pink)
+                );
+
+            border-color:
+                transparent;
+
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+
+            box-shadow:
+                0 4px 15px
+                rgba(147, 51, 234, 0.4);
         }
 
-        /* CARREGAR MAIS */
+        /* =========================
+           CARREGAR MAIS
+        ========================= */
+
         .load-more-container {
             display: flex;
+
             justify-content: center;
+
             margin-top: 2rem;
+
+            width: 100%;
         }
 
-        #loadMoreBtn {
-            background: linear-gradient(
-                135deg,
-                var(--accent-purple),
-                var(--accent-pink)
-            );
+        .load-more-btn {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent-purple),
+                    var(--accent-pink)
+                );
+
             color: #fff;
+
             border: none;
+
             border-radius: 10px;
+
             padding: 12px 30px;
+
             font-size: 0.95rem;
+
             font-weight: 600;
+
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 18px rgba(147, 51, 234, 0.3);
+
+            transition:
+                all 0.3s ease;
+
+            box-shadow:
+                0 5px 18px
+                rgba(147, 51, 234, 0.3);
         }
 
-        #loadMoreBtn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.45);
+        .load-more-btn:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(147, 51, 234, 0.45);
         }
 
-        #loadMoreBtn:active {
-            transform: scale(0.97);
+        .load-more-btn:active {
+            transform:
+                scale(0.97);
         }
 
-        /* MODAL */
+        /* =========================
+           SEÇÃO FERRAMENTAS
+        ========================= */
+
+        .tools-section {
+            width: 100%;
+
+            margin-top: 4rem;
+
+            padding-top: 2.5rem;
+
+            border-top:
+                1px solid
+                var(--border-color);
+        }
+
+        .tools-section .section-title {
+            text-align: center;
+
+            margin-bottom: 2rem;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
         .modal-overlay {
             position: fixed;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 100%;
-            background-color: rgba(5, 6, 9, 0.8);
-            backdrop-filter: blur(6px);
+
+            background-color:
+                rgba(5, 6, 9, 0.8);
+
+            backdrop-filter:
+                blur(6px);
+
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             z-index: 1000;
+
             opacity: 0;
+
             visibility: hidden;
-            transition: all 0.3s ease;
+
+            transition:
+                all 0.3s ease;
         }
 
         .modal-overlay.active {
             opacity: 1;
+
             visibility: visible;
         }
 
         .modal-content {
-            background-color: #131520;
-            border: 1px solid var(--accent-border);
+            background-color:
+                #131520;
+
+            border:
+                1px solid
+                var(--accent-border);
+
             border-radius: 18px;
-            width: calc(100% - 30px);
+
+            width:
+                calc(100% - 30px);
+
             max-width: 480px;
+
             padding: 2rem;
+
             position: relative;
-            transform: scale(0.95);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.3);
+
+            transform:
+                scale(0.95);
+
+            transition:
+                transform
+                0.3s
+                cubic-bezier(
+                    0.4,
+                    0,
+                    0.2,
+                    1
+                );
+
+            box-shadow:
+                0 25px 50px -12px
+                rgba(147, 51, 234, 0.3);
         }
 
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
+        .modal-overlay.active
+        .modal-content {
+            transform:
+                scale(1);
         }
 
         .modal-close {
             position: absolute;
+
             top: 1.25rem;
             right: 1.25rem;
-            background: #1c1f2e;
+
+            background:
+                #1c1f2e;
+
             border: none;
-            color: var(--text-muted);
+
+            color:
+                var(--text-muted);
+
             width: 32px;
             height: 32px;
+
             border-radius: 50%;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             cursor: pointer;
         }
 
         .modal-close:hover {
-            background-color: #26293d;
-            color: var(--text-main);
+            background-color:
+                #26293d;
+
+            color:
+                var(--text-main);
         }
 
         .modal-header {
             display: flex;
+
             align-items: center;
+
             gap: 16px;
+
             margin-bottom: 1.25rem;
         }
 
         .modal-icon {
             width: 64px;
             height: 64px;
+
             border-radius: 14px;
-            background: #1c1f2e;
+
+            background:
+                #1c1f2e;
+
             overflow: hidden;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             font-size: 2rem;
-            border: 1px solid var(--border-color);
+
+            border:
+                1px solid
+                var(--border-color);
+
+            flex-shrink: 0;
         }
 
         .modal-icon img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
         }
 
         .modal-title-area h2 {
             font-size: 1.25rem;
+
             font-weight: 600;
+
             margin-bottom: 4px;
-            color: var(--accent-purple);
+
+            color:
+                var(--accent-purple);
         }
 
         .modal-meta {
             font-size: 0.85rem;
-            color: var(--text-muted);
+
+            color:
+                var(--text-muted);
         }
 
         .modal-sections {
             display: flex;
+
             flex-direction: column;
+
             gap: 16px;
+
             margin-top: 1rem;
         }
 
         .section-box {
-            background-color: #1c1f2e;
-            border: 1px solid var(--border-color);
+            background-color:
+                #1c1f2e;
+
+            border:
+                1px solid
+                var(--border-color);
+
             border-radius: 12px;
+
             padding: 12px;
         }
 
         .section-label {
             font-size: 0.8rem;
-            color: var(--text-muted);
+
+            color:
+                var(--text-muted);
+
             margin-bottom: 6px;
+
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.5px;
         }
 
         .action-row {
             display: flex;
+
             gap: 8px;
         }
 
         .copy-input {
             flex: 1;
+
             min-width: 0;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
+
+            background-color:
+                var(--bg-color);
+
+            border:
+                1px solid
+                var(--border-color);
+
             border-radius: 8px;
+
             padding: 8px 12px;
-            color: var(--text-muted);
+
+            color:
+                var(--text-muted);
+
             font-size: 0.85rem;
+
             outline: none;
         }
 
         .btn-copy {
-            background-color: #26293d;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
+            background-color:
+                #26293d;
+
+            color:
+                var(--text-main);
+
+            border:
+                1px solid
+                var(--border-color);
+
             border-radius: 8px;
+
             padding: 0 14px;
+
             font-size: 0.85rem;
+
             font-weight: 500;
+
             cursor: pointer;
+
             white-space: nowrap;
         }
 
         .btn-download-primary {
-            background: linear-gradient(
-                135deg,
-                var(--accent-purple),
-                var(--accent-pink)
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent-purple),
+                    var(--accent-pink)
+                );
+
             color: white;
+
             border: none;
+
             border-radius: 8px;
+
             padding: 10px;
+
             font-size: 0.9rem;
+
             font-weight: 600;
+
             cursor: pointer;
+
             text-align: center;
+
             text-decoration: none;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             gap: 8px;
+
             width: 100%;
+
             margin-top: 8px;
         }
 
-        /* STATUS */
+        /* =========================
+           MENSAGENS
+        ========================= */
+
         .status-message {
             grid-column: 1 / -1;
+
             text-align: center;
+
             padding: 4rem;
-            color: var(--text-muted);
+
+            color:
+                var(--text-muted);
+
             font-size: 1.1rem;
         }
 
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
         @media (max-width: 768px) {
+
             header {
                 flex-direction: column;
+
                 gap: 1rem;
+
                 align-items: stretch;
             }
 
@@ -504,11 +892,17 @@
             }
 
             main {
-                padding: 2rem 1rem;
+                padding:
+                    2rem 1rem;
             }
 
             .apps-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+
                 gap: 1rem;
             }
 
@@ -520,11 +914,17 @@
                 width: 70px;
                 height: 70px;
             }
+
         }
 
         @media (max-width: 480px) {
+
             .apps-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
             }
 
             .app-card {
@@ -543,547 +943,1184 @@
                 width: 65px;
                 height: 65px;
             }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
-<header>
-    <a href="#" class="logo-container">
-        <div class="logo-img-wrapper">
-            <img src="icon.png"
-                 alt="Logo StreamingBoxPlay"
-                 onerror="this.style.display='none'">
-        </div>
+    <!-- =========================
+         HEADER
+    ========================= -->
 
-        <div class="logo-text-group">
-            <span class="logo-title">
-                <span class="text-stream">Streaming</span><span class="text-box">Box</span><span class="text-play">Play</span>
-            </span>
+    <header>
 
-            <span class="logo-subtitle">
-                Seu universo de entretenimento
-            </span>
-        </div>
-    </a>
+        <a href="#" class="logo-container">
 
-    <div class="search-box">
-        <svg viewBox="0 0 24 24">
-            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5
-            6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79
-            l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99
-            5 9.5S7.01 5 9.5 5 14 7.01 14 9.5
-            11.99 14 9.5 14z"/>
-        </svg>
+            <div class="logo-img-wrapper">
 
-        <input type="text"
-               id="searchInput"
-               placeholder="Pesquisar aplicativos...">
-    </div>
-</header>
-
-<main>
-
-    <h1 class="section-title">
-        Aplicativos Disponíveis
-    </h1>
-
-    <div id="appsGrid" class="apps-grid">
-        <div class="status-message">
-            Carregando aplicativos...
-        </div>
-    </div>
-
-    <!-- BOTÃO CARREGAR MAIS -->
-    <div id="loadMoreContainer" class="load-more-container" style="display:none;">
-        <button id="loadMoreBtn">
-            Carregar mais
-        </button>
-    </div>
-
-</main>
-
-<!-- MODAL -->
-<div id="appModal" class="modal-overlay">
-
-    <div class="modal-content">
-
-        <button class="modal-close" id="closeModal">
-            ✕
-        </button>
-
-        <div class="modal-header">
-
-            <div class="modal-icon" id="modalIcon">
-                📦
-            </div>
-
-            <div class="modal-title-area">
-
-                <h2 id="modalName">
-                    Nome do App
-                </h2>
-
-                <div class="modal-meta" id="modalMeta">
-                    StreamingBoxPlay Oficial
-                </div>
+                <img
+                    src="icon.png"
+                    alt="Logo StreamingBoxPlay"
+                    onerror="this.style.display='none'"
+                >
 
             </div>
 
-        </div>
+            <div class="logo-text-group">
 
-        <div class="modal-sections">
+                <span class="logo-title">
 
-            <!-- DOWNLOAD -->
-            <div class="section-box">
+                    <span class="text-stream">
+                        Streaming
+                    </span>
 
-                <div class="section-label">
-                    Link de Download Direto
-                </div>
+                    <span class="text-box">
+                        Box
+                    </span>
 
-                <div class="action-row">
+                    <span class="text-play">
+                        Play
+                    </span>
 
-                    <input type="text"
-                           id="modalLinkInput"
-                           class="copy-input"
-                           readonly>
+                </span>
 
-                    <button class="btn-copy"
-                            id="copyLinkBtn">
-                        Copiar Link
-                    </button>
-
-                </div>
-
-                <a href="#"
-                   id="modalDownloadBtn"
-                   class="btn-download-primary"
-                   target="_blank">
-
-                    <svg width="16"
-                         height="16"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="2.5"
-                         stroke-linecap="round"
-                         stroke-linejoin="round">
-
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
-
-                    </svg>
-
-                    Baixar Agora
-                </a>
+                <span class="logo-subtitle">
+                    Seu universo de entretenimento
+                </span>
 
             </div>
 
-            <!-- DOWNLOADER -->
-            <div class="section-box">
+        </a>
 
-                <div class="section-label">
-                    Código Downloader
-                </div>
 
-                <div class="action-row">
+        <div class="search-box">
 
-                    <input type="text"
-                           id="modalDownloaderInput"
-                           class="copy-input"
-                           readonly>
+            <svg viewBox="0 0 24 24">
 
-                    <button class="btn-copy"
-                            id="copyDownloaderBtn">
-                        Copiar Código
-                    </button>
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5
+                6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79
+                l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99
+                5 9.5S7.01 5 9.5 5 14 7.01 14 9.5
+                11.99 14 9.5 14z"/>
 
-                </div>
+            </svg>
 
-            </div>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Pesquisar aplicativos..."
+            >
 
         </div>
 
-    </div>
+    </header>
 
-</div>
 
-<script>
+    <!-- =========================
+         CONTEÚDO
+    ========================= -->
 
-let allApps = [];
-let filteredApps = [];
+    <main>
 
-/*
-    Quantidade de colunas:
-    Desktop: depende da largura da tela
-    Celular: 2 colunas
+        <!-- APLICATIVOS -->
 
-    Inicialmente mostramos aproximadamente
-    2 linhas de cards.
-*/
-let visibleApps = 8;
+        <h1 class="section-title">
+            Aplicativos Disponíveis
+        </h1>
 
-/* =========================
-   CARREGAR JSON
-========================= */
 
-async function loadApps() {
+        <div
+            id="appsGrid"
+            class="apps-grid"
+        >
 
-    try {
-
-        const response = await fetch('app.json');
-
-        if (!response.ok) {
-            throw new Error('Erro ao carregar app.json');
-        }
-
-        allApps = await response.json();
-
-        filteredApps = allApps;
-
-        renderApps();
-
-    } catch (error) {
-
-        console.error(error);
-
-        document.getElementById('appsGrid').innerHTML = `
             <div class="status-message">
-                Não foi possível carregar os aplicativos.
-                Verifique se o arquivo
-                <strong>app.json</strong>
-                está no mesmo diretório.
+                Carregando aplicativos...
             </div>
-        `;
 
-    }
-
-}
+        </div>
 
 
-/* =========================
-   RENDERIZAR APLICATIVOS
-========================= */
+        <!-- CARREGAR MAIS APLICATIVOS -->
 
-function renderApps() {
+        <div
+            id="appsLoadMoreContainer"
+            class="load-more-container"
+            style="display:none;"
+        >
 
-    const grid = document.getElementById('appsGrid');
+            <button
+                id="appsLoadMoreBtn"
+                class="load-more-btn"
+            >
+                Carregar mais
+            </button>
 
-    if (filteredApps.length === 0) {
+        </div>
 
-        grid.innerHTML = `
-            <div class="status-message">
-                Nenhum aplicativo encontrado.
-            </div>
-        `;
 
-        document.getElementById('loadMoreContainer').style.display = 'none';
+        <!-- =========================
+             FERRAMENTAS
+        ========================= -->
 
-        return;
-    }
+        <section class="tools-section">
 
-    /*
-        Pega somente os aplicativos
-        que devem estar visíveis.
-    */
+            <h1 class="section-title">
+                Ferramentas
+            </h1>
 
-    const appsToShow = filteredApps.slice(0, visibleApps);
 
-    grid.innerHTML = appsToShow.map(app => `
+            <div
+                id="toolsGrid"
+                class="apps-grid"
+            >
 
-        <div class="app-card"
-             onclick="openModal('${app.id}')">
-
-            <div class="app-info">
-
-                <h3>
-                    ${app.nome}
-                </h3>
-
-                <div class="app-date">
-                    Atualizado em:
-                    ${app.data || '02/09/2026'}
+                <div class="status-message">
+                    Carregando ferramentas...
                 </div>
 
             </div>
 
-            <div class="app-icon">
 
-                ${
-                    app.icone
-                    ?
-                    `<img src="${app.icone}"
-                          alt="${app.nome}"
-                          onerror="this.parentElement.innerHTML='📦'">`
-                    :
-                    '📦'
-                }
+            <!-- CARREGAR MAIS FERRAMENTAS -->
 
-            </div>
+            <div
+                id="toolsLoadMoreContainer"
+                class="load-more-container"
+                style="display:none;"
+            >
 
-            <div class="card-footer">
-
-                <button class="btn-details">
-                    Ver Detalhes
+                <button
+                    id="toolsLoadMoreBtn"
+                    class="load-more-btn"
+                >
+                    Carregar mais
                 </button>
 
             </div>
 
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL
+    ========================= -->
+
+    <div
+        id="appModal"
+        class="modal-overlay"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="closeModal"
+            >
+                ✕
+            </button>
+
+
+            <div class="modal-header">
+
+                <div
+                    class="modal-icon"
+                    id="modalIcon"
+                >
+                    📦
+                </div>
+
+
+                <div class="modal-title-area">
+
+                    <h2 id="modalName">
+                        Nome do App
+                    </h2>
+
+                    <div
+                        class="modal-meta"
+                        id="modalMeta"
+                    >
+                        StreamingBoxPlay Oficial
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-sections">
+
+                <!-- DOWNLOAD -->
+
+                <div class="section-box">
+
+                    <div class="section-label">
+                        Link de Download Direto
+                    </div>
+
+
+                    <div class="action-row">
+
+                        <input
+                            type="text"
+                            id="modalLinkInput"
+                            class="copy-input"
+                            readonly
+                        >
+
+                        <button
+                            class="btn-copy"
+                            id="copyLinkBtn"
+                        >
+                            Copiar Link
+                        </button>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        id="modalDownloadBtn"
+                        class="btn-download-primary"
+                        target="_blank"
+                    >
+
+                        Baixar Agora
+
+                    </a>
+
+                </div>
+
+
+                <!-- DOWNLOADER -->
+
+                <div class="section-box">
+
+                    <div class="section-label">
+                        Código Downloader
+                    </div>
+
+
+                    <div class="action-row">
+
+                        <input
+                            type="text"
+                            id="modalDownloaderInput"
+                            class="copy-input"
+                            readonly
+                        >
+
+                        <button
+                            class="btn-copy"
+                            id="copyDownloaderBtn"
+                        >
+                            Copiar Código
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-    `).join('');
+    </div>
 
 
-    /*
-        Controla o botão Carregar Mais
-    */
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-    const loadMoreContainer =
-        document.getElementById('loadMoreContainer');
+    <script>
 
-    if (visibleApps < filteredApps.length) {
+        /* =========================
+           CONFIGURAÇÃO
+        ========================= */
 
-        loadMoreContainer.style.display = 'flex';
+        const ITEMS_PER_PAGE = 8;
 
-    } else {
 
-        loadMoreContainer.style.display = 'none';
+        let allApps = [];
 
-    }
+        let filteredApps = [];
 
-}
+        let visibleApps = ITEMS_PER_PAGE;
 
 
-/* =========================
-   CARREGAR MAIS
-========================= */
+        let allTools = [];
 
-document.getElementById('loadMoreBtn')
-.addEventListener('click', () => {
+        let filteredTools = [];
 
-    /*
-        Adiciona mais 8 aplicativos.
-        Em celular isso equivale a 4 linhas.
-    */
+        let visibleTools = ITEMS_PER_PAGE;
 
-    visibleApps += 8;
 
-    renderApps();
+        /* =========================
+           ELEMENTOS
+        ========================= */
 
-});
+        const appsGrid =
+            document.getElementById(
+                'appsGrid'
+            );
 
+        const toolsGrid =
+            document.getElementById(
+                'toolsGrid'
+            );
 
-/* =========================
-   MODAL
-========================= */
 
-const modal =
-    document.getElementById('appModal');
+        const appsLoadMoreContainer =
+            document.getElementById(
+                'appsLoadMoreContainer'
+            );
 
-const closeModalBtn =
-    document.getElementById('closeModal');
+        const toolsLoadMoreContainer =
+            document.getElementById(
+                'toolsLoadMoreContainer'
+            );
 
 
-function openModal(appId) {
+        /* =========================
+           APLICATIVOS
+        ========================= */
 
-    const app =
-        allApps.find(a => a.id == appId);
+        async function loadApps() {
 
-    if (!app) return;
+            try {
 
-    document.getElementById('modalName')
-        .textContent = app.nome;
+                const response =
+                    await fetch(
+                        'app.json'
+                    );
 
-    document.getElementById('modalLinkInput')
-        .value = app.linkDownload || '';
 
-    document.getElementById('modalDownloadBtn')
-        .href = app.linkDownload || '#';
+                if (!response.ok) {
 
-    document.getElementById('modalDownloaderInput')
-        .value = app.downloader || '';
+                    throw new Error(
+                        'Erro ao carregar app.json'
+                    );
 
+                }
 
-    const iconContainer =
-        document.getElementById('modalIcon');
 
-    if (app.icone) {
+                allApps =
+                    await response.json();
 
-        iconContainer.innerHTML = `
-            <img src="${app.icone}"
-                 alt="${app.nome}"
-                 onerror="this.parentElement.innerHTML='📦'">
-        `;
 
-    } else {
+                filteredApps =
+                    allApps;
 
-        iconContainer.innerHTML = '📦';
 
-    }
+                renderApps();
 
-    modal.classList.add('active');
+            }
 
-}
+            catch (error) {
 
+                console.error(error);
 
-function closeModal() {
 
-    modal.classList.remove('active');
+                appsGrid.innerHTML = `
 
-}
+                    <div class="status-message">
 
+                        Não foi possível carregar
+                        os aplicativos.
 
-closeModalBtn.addEventListener(
-    'click',
-    closeModal
-);
+                        <br><br>
 
+                        Verifique se o arquivo
+                        <strong>app.json</strong>
+                        está no mesmo diretório.
 
-modal.addEventListener('click', (e) => {
+                    </div>
 
-    if (e.target === modal) {
-        closeModal();
-    }
+                `;
 
-});
+            }
 
+        }
 
-/* =========================
-   COPIAR LINK
-========================= */
 
-document.getElementById('copyLinkBtn')
-.addEventListener('click', async () => {
+        function renderApps() {
 
-    const input =
-        document.getElementById('modalLinkInput');
+            if (
+                filteredApps.length === 0
+            ) {
 
-    try {
+                appsGrid.innerHTML = `
 
-        await navigator.clipboard.writeText(input.value);
+                    <div class="status-message">
+                        Nenhum aplicativo encontrado.
+                    </div>
 
-    } catch {
+                `;
 
-        input.select();
-        document.execCommand('copy');
 
-    }
+                appsLoadMoreContainer
+                    .style.display = 'none';
 
-    const btn =
-        document.getElementById('copyLinkBtn');
 
-    const originalText =
-        btn.textContent;
+                return;
 
-    btn.textContent = 'Copiado!';
+            }
 
-    btn.style.backgroundColor = '#10b981';
-    btn.style.color = '#fff';
 
-    setTimeout(() => {
+            const appsToShow =
+                filteredApps.slice(
+                    0,
+                    visibleApps
+                );
 
-        btn.textContent = originalText;
-        btn.style.backgroundColor = '';
-        btn.style.color = '';
 
-    }, 2000);
+            appsGrid.innerHTML =
+                appsToShow.map(
+                    app => createCard(
+                        app,
+                        'app'
+                    )
+                ).join('');
 
-});
 
+            if (
+                visibleApps <
+                filteredApps.length
+            ) {
 
-/* =========================
-   COPIAR DOWNLOADER
-========================= */
+                appsLoadMoreContainer
+                    .style.display = 'flex';
 
-document.getElementById('copyDownloaderBtn')
-.addEventListener('click', async () => {
+            }
 
-    const input =
-        document.getElementById('modalDownloaderInput');
+            else {
 
-    try {
+                appsLoadMoreContainer
+                    .style.display = 'none';
 
-        await navigator.clipboard.writeText(input.value);
+            }
 
-    } catch {
+        }
 
-        input.select();
-        document.execCommand('copy');
 
-    }
+        /* =========================
+           FERRAMENTAS
+        ========================= */
 
-    const btn =
-        document.getElementById('copyDownloaderBtn');
+        async function loadTools() {
 
-    const originalText =
-        btn.textContent;
+            try {
 
-    btn.textContent = 'Copiado!';
+                const response =
+                    await fetch(
+                        'tools.json'
+                    );
 
-    btn.style.backgroundColor = '#10b981';
-    btn.style.color = '#fff';
 
-    setTimeout(() => {
+                if (!response.ok) {
 
-        btn.textContent = originalText;
-        btn.style.backgroundColor = '';
-        btn.style.color = '';
+                    throw new Error(
+                        'Erro ao carregar tools.json'
+                    );
 
-    }, 2000);
+                }
 
-});
 
+                allTools =
+                    await response.json();
 
-/* =========================
-   PESQUISA
-========================= */
 
-document.getElementById('searchInput')
-.addEventListener('input', (e) => {
+                filteredTools =
+                    allTools;
 
-    const term =
-        e.target.value
-        .toLowerCase()
-        .trim();
 
-    filteredApps = allApps.filter(app =>
+                renderTools();
 
-        app.nome
-        .toLowerCase()
-        .includes(term)
+            }
 
-        ||
+            catch (error) {
 
-        (
-            app.data &&
-            app.data
-            .toLowerCase()
-            .includes(term)
-        )
+                console.error(error);
 
-    );
 
-    /*
-        Quando pesquisar,
-        volta para o início da lista.
-    */
+                toolsGrid.innerHTML = `
 
-    visibleApps = 8;
+                    <div class="status-message">
 
-    renderApps();
+                        Não foi possível carregar
+                        as ferramentas.
 
-});
+                        <br><br>
 
+                        Verifique se o arquivo
+                        <strong>tools.json</strong>
+                        está no mesmo diretório.
 
-/* =========================
-   INICIAR
-========================= */
+                    </div>
 
-loadApps();
+                `;
 
-</script>
+            }
+
+        }
+
+
+        function renderTools() {
+
+            if (
+                filteredTools.length === 0
+            ) {
+
+                toolsGrid.innerHTML = `
+
+                    <div class="status-message">
+                        Nenhuma ferramenta encontrada.
+                    </div>
+
+                `;
+
+
+                toolsLoadMoreContainer
+                    .style.display = 'none';
+
+
+                return;
+
+            }
+
+
+            const toolsToShow =
+                filteredTools.slice(
+                    0,
+                    visibleTools
+                );
+
+
+            toolsGrid.innerHTML =
+                toolsToShow.map(
+                    tool => createCard(
+                        tool,
+                        'tool'
+                    )
+                ).join('');
+
+
+            if (
+                visibleTools <
+                filteredTools.length
+            ) {
+
+                toolsLoadMoreContainer
+                    .style.display = 'flex';
+
+            }
+
+            else {
+
+                toolsLoadMoreContainer
+                    .style.display = 'none';
+
+            }
+
+        }
+
+
+        /* =========================
+           CRIAR CARD
+        ========================= */
+
+        function createCard(
+            item,
+            type
+        ) {
+
+            const id =
+                item.id ??
+                item.nome ??
+                Math.random();
+
+
+            const nome =
+                item.nome ??
+                item.name ??
+                'Sem nome';
+
+
+            const data =
+                item.data ??
+                item.dataAtualizacao ??
+                '';
+
+
+            const icone =
+                item.icone ??
+                item.icon ??
+                '';
+
+
+            return `
+
+                <div
+                    class="app-card"
+                    onclick="openModal('${escapeHtml(String(id))}', '${type}')"
+                >
+
+                    <div class="app-info">
+
+                        <h3>
+                            ${escapeHtml(nome)}
+                        </h3>
+
+
+                        ${
+                            data
+                            ?
+                            `
+                            <div class="app-date">
+
+                                Atualizado em:
+                                ${escapeHtml(data)}
+
+                            </div>
+                            `
+                            :
+                            ''
+                        }
+
+                    </div>
+
+
+                    <div class="app-icon">
+
+                        ${
+                            icone
+                            ?
+                            `
+                            <img
+                                src="${escapeHtml(icone)}"
+                                alt="${escapeHtml(nome)}"
+                                onerror="this.parentElement.innerHTML='🛠️'"
+                            >
+                            `
+                            :
+                            '🛠️'
+                        }
+
+                    </div>
+
+
+                    <div class="card-footer">
+
+                        <button
+                            class="btn-details"
+                        >
+                            Ver Detalhes
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           ESCAPAR HTML
+        ========================= */
+
+        function escapeHtml(value) {
+
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+
+        }
+
+
+        /* =========================
+           CARREGAR MAIS APPS
+        ========================= */
+
+        document
+            .getElementById(
+                'appsLoadMoreBtn'
+            )
+            .addEventListener(
+                'click',
+                () => {
+
+                    visibleApps +=
+                        ITEMS_PER_PAGE;
+
+                    renderApps();
+
+                }
+            );
+
+
+        /* =========================
+           CARREGAR MAIS FERRAMENTAS
+        ========================= */
+
+        document
+            .getElementById(
+                'toolsLoadMoreBtn'
+            )
+            .addEventListener(
+                'click',
+                () => {
+
+                    visibleTools +=
+                        ITEMS_PER_PAGE;
+
+                    renderTools();
+
+                }
+            );
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        const modal =
+            document.getElementById(
+                'appModal'
+            );
+
+
+        const closeModalBtn =
+            document.getElementById(
+                'closeModal'
+            );
+
+
+        function openModal(
+            itemId,
+            type
+        ) {
+
+            const list =
+                type === 'tool'
+                    ? allTools
+                    : allApps;
+
+
+            const item =
+                list.find(
+                    item =>
+                        String(
+                            item.id ??
+                            item.nome ??
+                            ''
+                        ) ===
+                        String(itemId)
+                );
+
+
+            if (!item) return;
+
+
+            const nome =
+                item.nome ??
+                item.name ??
+                'Item';
+
+
+            const link =
+                item.linkDownload ??
+                item.link ??
+                item.url ??
+                '';
+
+
+            const downloader =
+                item.downloader ??
+                item.codigo ??
+                item.code ??
+                '';
+
+
+            document
+                .getElementById(
+                    'modalName'
+                )
+                .textContent = nome;
+
+
+            document
+                .getElementById(
+                    'modalMeta'
+                )
+                .textContent =
+                    type === 'tool'
+                        ? 'Ferramenta StreamingBoxPlay'
+                        : 'StreamingBoxPlay Oficial';
+
+
+            document
+                .getElementById(
+                    'modalLinkInput'
+                )
+                .value = link;
+
+
+            document
+                .getElementById(
+                    'modalDownloadBtn'
+                )
+                .href =
+                    link || '#';
+
+
+            document
+                .getElementById(
+                    'modalDownloaderInput'
+                )
+                .value =
+                    downloader;
+
+
+            const iconContainer =
+                document.getElementById(
+                    'modalIcon'
+                );
+
+
+            const icone =
+                item.icone ??
+                item.icon ??
+                '';
+
+
+            if (icone) {
+
+                iconContainer.innerHTML = `
+
+                    <img
+                        src="${escapeHtml(icone)}"
+                        alt="${escapeHtml(nome)}"
+                        onerror="this.parentElement.innerHTML='📦'"
+                    >
+
+                `;
+
+            }
+
+            else {
+
+                iconContainer.innerHTML =
+                    type === 'tool'
+                        ? '🛠️'
+                        : '📦';
+
+            }
+
+
+            modal.classList.add(
+                'active'
+            );
+
+        }
+
+
+        function closeModal() {
+
+            modal.classList.remove(
+                'active'
+            );
+
+        }
+
+
+        closeModalBtn.addEventListener(
+            'click',
+            closeModal
+        );
+
+
+        modal.addEventListener(
+            'click',
+            event => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           COPIAR LINK
+        ========================= */
+
+        document
+            .getElementById(
+                'copyLinkBtn'
+            )
+            .addEventListener(
+                'click',
+                async () => {
+
+                    const input =
+                        document.getElementById(
+                            'modalLinkInput'
+                        );
+
+
+                    await copyText(
+                        input.value
+                    );
+
+
+                    showCopied(
+                        'copyLinkBtn',
+                        'Copiado!'
+                    );
+
+                }
+            );
+
+
+        /* =========================
+           COPIAR DOWNLOADER
+        ========================= */
+
+        document
+            .getElementById(
+                'copyDownloaderBtn'
+            )
+            .addEventListener(
+                'click',
+                async () => {
+
+                    const input =
+                        document.getElementById(
+                            'modalDownloaderInput'
+                        );
+
+
+                    await copyText(
+                        input.value
+                    );
+
+
+                    showCopied(
+                        'copyDownloaderBtn',
+                        'Copiado!'
+                    );
+
+                }
+            );
+
+
+        async function copyText(
+            text
+        ) {
+
+            try {
+
+                await navigator
+                    .clipboard
+                    .writeText(text);
+
+            }
+
+            catch {
+
+                const textarea =
+                    document.createElement(
+                        'textarea'
+                    );
+
+                textarea.value = text;
+
+                document.body.appendChild(
+                    textarea
+                );
+
+                textarea.select();
+
+                document.execCommand(
+                    'copy'
+                );
+
+                textarea.remove();
+
+            }
+
+        }
+
+
+        function showCopied(
+            buttonId,
+            text
+        ) {
+
+            const btn =
+                document.getElementById(
+                    buttonId
+                );
+
+
+            const original =
+                btn.textContent;
+
+
+            btn.textContent =
+                text;
+
+
+            btn.style.backgroundColor =
+                '#10b981';
+
+            btn.style.color =
+                '#fff';
+
+
+            setTimeout(
+                () => {
+
+                    btn.textContent =
+                        original;
+
+                    btn.style.backgroundColor =
+                        '';
+
+                    btn.style.color =
+                        '';
+
+                },
+                2000
+            );
+
+        }
+
+
+        /* =========================
+           PESQUISA
+        ========================= */
+
+        document
+            .getElementById(
+                'searchInput'
+            )
+            .addEventListener(
+                'input',
+                event => {
+
+                    const term =
+                        event.target.value
+                            .toLowerCase()
+                            .trim();
+
+
+                    filteredApps =
+                        allApps.filter(
+                            app => {
+
+                                const nome =
+                                    String(
+                                        app.nome ??
+                                        app.name ??
+                                        ''
+                                    )
+                                    .toLowerCase();
+
+
+                                const data =
+                                    String(
+                                        app.data ??
+                                        ''
+                                    )
+                                    .toLowerCase();
+
+
+                                return (
+                                    nome.includes(term) ||
+                                    data.includes(term)
+                                );
+
+                            }
+                        );
+
+
+                    filteredTools =
+                        allTools.filter(
+                            tool => {
+
+                                const nome =
+                                    String(
+                                        tool.nome ??
+                                        tool.name ??
+                                        ''
+                                    )
+                                    .toLowerCase();
+
+
+                                const data =
+                                    String(
+                                        tool.data ??
+                                        ''
+                                    )
+                                    .toLowerCase();
+
+
+                                return (
+                                    nome.includes(term) ||
+                                    data.includes(term)
+                                );
+
+                            }
+                        );
+
+
+                    visibleApps =
+                        ITEMS_PER_PAGE;
+
+                    visibleTools =
+                        ITEMS_PER_PAGE;
+
+
+                    renderApps();
+
+                    renderTools();
+
+                }
+            );
+
+
+        /* =========================
+           INICIAR
+        ========================= */
+
+        loadApps();
+
+        loadTools();
+
+    </script>
 
 </body>
+
 </html>
