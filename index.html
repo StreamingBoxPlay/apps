@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamingBoxPlay - Aplicativos e Ferramentas</title>
-
+    <title>StreamingBoxPlay - Download de Aplicativos</title>
     <style>
         :root {
             --bg-color: #0a0b10;
@@ -25,8 +24,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont,
-                'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -37,8 +35,7 @@
             flex-direction: column;
         }
 
-        /* ================= HEADER ================= */
-
+        /* Header */
         header {
             background-color: rgba(10, 11, 16, 0.85);
             backdrop-filter: blur(12px);
@@ -139,8 +136,7 @@
             fill: var(--text-muted);
         }
 
-        /* ================= MAIN ================= */
-
+        /* Main Content */
         main {
             flex: 1;
             max-width: 1280px;
@@ -148,12 +144,6 @@
             margin: 0 auto;
             padding: 2.5rem 2rem;
         }
-
-        .section {
-            margin-bottom: 4rem;
-        }
-
-        /* TÍTULOS CENTRALIZADOS */
 
         .section-title {
             font-size: 1.75rem;
@@ -164,8 +154,7 @@
             color: var(--text-main);
         }
 
-        /* ================= GRID ================= */
-
+        /* Grid de Cards */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -196,12 +185,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(
-                90deg,
-                var(--accent-purple),
-                var(--accent-pink),
-                var(--accent-orange)
-            );
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink), var(--accent-orange));
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -217,6 +201,7 @@
             opacity: 1;
         }
 
+        /* Título do aplicativo na cor roxa da logo */
         .app-info h3 {
             font-size: 1.2rem;
             font-weight: 600;
@@ -273,55 +258,19 @@
         }
 
         .app-card:hover .btn-details {
-            background: linear-gradient(
-                135deg,
-                var(--accent-purple),
-                var(--accent-pink)
-            );
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
             border-color: transparent;
             color: #ffffff;
             box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
         }
 
-        /* ================= BOTÃO CARREGAR MAIS ================= */
-
-        .load-more-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .btn-load-more {
-            background: linear-gradient(
-                135deg,
-                var(--accent-purple),
-                var(--accent-pink)
-            );
-            color: #fff;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 18px rgba(147, 51, 234, 0.25);
-        }
-
-        .btn-load-more:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
-        }
-
-        .btn-load-more.hidden {
-            display: none;
-        }
-
-        /* ================= MODAL ================= */
-
+        /* Modal */
         .modal-overlay {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: rgba(5, 6, 9, 0.8);
             backdrop-filter: blur(6px);
             display: flex;
@@ -331,7 +280,6 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            padding: 20px;
         }
 
         .modal-overlay.active {
@@ -348,7 +296,7 @@
             padding: 2rem;
             position: relative;
             transform: scale(0.95);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.3);
         }
 
@@ -370,6 +318,12 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background-color: #26293d;
+            color: var(--text-main);
         }
 
         .modal-header {
@@ -458,15 +412,16 @@
             font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
+            transition: all 0.2s;
             white-space: nowrap;
         }
 
+        .btn-copy:hover {
+            background-color: #3f3f46;
+        }
+
         .btn-download-primary {
-            background: linear-gradient(
-                135deg,
-                var(--accent-purple),
-                var(--accent-pink)
-            );
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
             color: white;
             border: none;
             border-radius: 8px;
@@ -476,12 +431,18 @@
             cursor: pointer;
             text-align: center;
             text-decoration: none;
+            transition: opacity 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             width: 100%;
             margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+        }
+
+        .btn-download-primary:hover {
+            opacity: 0.9;
         }
 
         .status-message {
@@ -492,331 +453,201 @@
             font-size: 1.1rem;
         }
 
-        /* ================= RESPONSIVO ================= */
-
         @media (max-width: 768px) {
-
             header {
                 flex-direction: column;
                 gap: 1rem;
                 align-items: stretch;
             }
-
             .search-box {
                 max-width: 100%;
-            }
-
-            main {
-                padding: 2rem 1rem;
-            }
-
-            .apps-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1rem;
-            }
-
-            .app-card {
-                padding: 1rem;
-            }
-
-            .app-icon {
-                width: 70px;
-                height: 70px;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .logo-title {
-                font-size: 1.25rem;
-            }
-
-            .logo-img-wrapper {
-                height: 50px;
-            }
-
-            .apps-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .app-info h3 {
-                font-size: 1rem;
-            }
-
-            .app-date {
-                font-size: 0.7rem;
-            }
-
-            .btn-details {
-                padding: 8px 10px;
-                font-size: 0.8rem;
             }
         }
     </style>
 </head>
-
 <body>
 
-<header>
-
-    <a href="#" class="logo-container">
-
-        <div class="logo-img-wrapper">
-            <img
-                src="icon.png"
-                alt="Logo StreamingBoxPlay"
-                onerror="this.style.display='none'"
-            >
+    <header>
+        <a href="#" class="logo-container">
+            <div class="logo-img-wrapper">
+                <img src="icon.png" alt="Logo StreamingBoxPlay" onerror="this.style.display='none'">
+            </div>
+            <div class="logo-text-group">
+                <span class="logo-title">
+                    <span class="text-stream">Streaming</span><span class="text-box">Box</span><span class="text-play">Play</span>
+                </span>
+                <span class="logo-subtitle">Seu universo de entretenimento</span>
+            </div>
+        </a>
+        <div class="search-box">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="searchInput" placeholder="Pesquisar aplicativos...">
         </div>
+    </header>
 
-        <div class="logo-text-group">
-
-            <span class="logo-title">
-                <span class="text-stream">Streaming</span><span class="text-box">Box</span><span class="text-play">Play</span>
-            </span>
-
-            <span class="logo-subtitle">
-                Seu universo de entretenimento
-            </span>
-
-        </div>
-
-    </a>
-
-    <div class="search-box">
-
-        <svg viewBox="0 0 24 24">
-            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5
-            6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59
-            4.23-1.57l.27.28v.79l5 4.99L20.49
-            19l-4.99-5zm-6 0C7.01 14 5 11.99
-            5 9.5S7.01 5 9.5 5 14 7.01
-            14 9.5 11.99 14 9.5 14z"/>
-        </svg>
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Pesquisar aplicativos e ferramentas..."
-        >
-
-    </div>
-
-</header>
-
-
-<main>
-
-    <!-- ================= APLICATIVOS ================= -->
-
-    <section class="section">
-
-        <h1 class="section-title">
-            Aplicativos disponíveis
-        </h1>
-
+    <main>
+        <h1 class="section-title">Aplicativos Disponíveis</h1>
         <div id="appsGrid" class="apps-grid">
+            <div class="status-message">Carregando aplicativos...</div>
+        </div>
+    </main>
 
-            <div class="status-message">
-                Carregando aplicativos...
+    <!-- Modal -->
+    <div id="appModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">✕</button>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon">📦</div>
+                <div class="modal-title-area">
+                    <h2 id="modalName">Nome do App</h2>
+                    <div class="modal-meta" id="modalMeta">StreamingBoxPlay Oficial</div>
+                </div>
             </div>
-
-        </div>
-
-        <div class="load-more-container">
-
-            <button
-                id="loadMoreApps"
-                class="btn-load-more hidden"
-            >
-                Carregar mais
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FERRAMENTAS ================= -->
-
-    <section class="section">
-
-        <h1 class="section-title">
-            Ferramentas
-        </h1>
-
-        <div id="toolsGrid" class="apps-grid">
-
-            <div class="status-message">
-                Carregando ferramentas...
-            </div>
-
-        </div>
-
-        <div class="load-more-container">
-
-            <button
-                id="loadMoreTools"
-                class="btn-load-more hidden"
-            >
-                Carregar mais
-            </button>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- ================= MODAL ================= -->
-
-<div id="appModal" class="modal-overlay">
-
-    <div class="modal-content">
-
-        <button
-            class="modal-close"
-            id="closeModal"
-        >
-            ✕
-        </button>
-
-        <div class="modal-header">
-
-            <div
-                class="modal-icon"
-                id="modalIcon"
-            >
-                📦
-            </div>
-
-            <div class="modal-title-area">
-
-                <h2 id="modalName">
-                    Nome
-                </h2>
-
-                <div
-                    class="modal-meta"
-                    id="modalMeta"
-                >
-                    StreamingBoxPlay Oficial
+            
+            <div class="modal-sections">
+                <!-- Seção Link Normal -->
+                <div class="section-box">
+                    <div class="section-label">Link de Download Direto</div>
+                    <div class="action-row">
+                        <input type="text" id="modalLinkInput" class="copy-input" readonly>
+                        <button class="btn-copy" id="copyLinkBtn">Copiar Link</button>
+                    </div>
+                    <a href="#" id="modalDownloadBtn" class="btn-download-primary" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Baixar Agora
+                    </a>
                 </div>
 
+                <!-- Seção Downloader -->
+                <div class="section-box">
+                    <div class="section-label">Código Downloader</div>
+                    <div class="action-row">
+                        <input type="text" id="modalDownloaderInput" class="copy-input" readonly>
+                        <button class="btn-copy" id="copyDownloaderBtn">Copiar Código</button>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-
-        <div class="modal-sections">
-
-            <div class="section-box">
-
-                <div class="section-label">
-                    Link de Download Direto
-                </div>
-
-                <div class="action-row">
-
-                    <input
-                        type="text"
-                        id="modalLinkInput"
-                        class="copy-input"
-                        readonly
-                    >
-
-                    <button
-                        class="btn-copy"
-                        id="copyLinkBtn"
-                    >
-                        Copiar Link
-                    </button>
-
-                </div>
-
-                <a
-                    href="#"
-                    id="modalDownloadBtn"
-                    class="btn-download-primary"
-                    target="_blank"
-                >
-                    ↓ &nbsp; Baixar Agora
-                </a>
-
-            </div>
-
-
-            <div class="section-box">
-
-                <div class="section-label">
-                    Código Downloader
-                </div>
-
-                <div class="action-row">
-
-                    <input
-                        type="text"
-                        id="modalDownloaderInput"
-                        class="copy-input"
-                        readonly
-                    >
-
-                    <button
-                        class="btn-copy"
-                        id="copyDownloaderBtn"
-                    >
-                        Copiar Código
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
 
-</div>
+    <script>
+        let allApps = [];
 
+        async function loadApps() {
+            try {
+                const response = await fetch('app.json');
+                if (!response.ok) throw new Error('Erro ao carregar app.json');
+                allApps = await response.json();
+                renderApps(allApps);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('appsGrid').innerHTML = `
+                    <div class="status-message">
+                        Não foi possível carregar os aplicativos. Verifique se o arquivo <strong>app.json</strong> está no mesmo diretório.
+                    </div>
+                `;
+            }
+        }
 
-<script>
-
-    /* =====================================================
-       CONFIGURAÇÃO
-       ===================================================== */
-
-    const ITEMS_PER_PAGE = 8;
-
-    let allApps = [];
-    let allTools = [];
-
-    let appsVisible = ITEMS_PER_PAGE;
-    let toolsVisible = ITEMS_PER_PAGE;
-
-    let currentItem = null;
-
-
-    /* =====================================================
-       CARREGAR APLICATIVOS
-       ===================================================== */
-
-    async function loadApps() {
-
-        try {
-
-            const response = await fetch('app.json');
-
-            if (!response.ok) {
-                throw new Error('Erro ao carregar app.json');
+        function renderApps(apps) {
+            const grid = document.getElementById('appsGrid');
+            if (apps.length === 0) {
+                grid.innerHTML = '<div class="status-message">Nenhum aplicativo encontrado.</div>';
+                return;
             }
 
-            allApps = await response.json();
+            grid.innerHTML = apps.map(app => `
+                <div class="app-card" onclick="openModal('${app.id}')">
+                    <div class="app-info">
+                        <h3>${app.nome}</h3>
+                        <div class="app-date">Atualizado em: ${app.data || '02/09/2026'}</div>
+                    </div>
+                    <div class="app-icon">
+                        ${app.icone ? `<img src="${app.icone}" alt="${app.nome}" onerror="this.parentElement.innerHTML='📦'">` : '📦'}
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-details">Ver Detalhes</button>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-            renderApps();
+        const modal = document.getElementById('appModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const searchInput = document.getElementById('searchInput');
 
-        } c
+        function openModal(appId) {
+            const app = allApps.find(a => a.id == appId);
+            if (!app) return;
+
+            document.getElementById('modalName').textContent = app.nome;
+            document.getElementById('modalLinkInput').value = app.linkDownload || '';
+            document.getElementById('modalDownloadBtn').href = app.linkDownload || '#';
+            document.getElementById('modalDownloaderInput').value = app.downloader || '';
+            
+            const iconContainer = document.getElementById('modalIcon');
+            if (app.icone) {
+                iconContainer.innerHTML = `<img src="${app.icone}" alt="${app.nome}" onerror="this.innerHTML='📦'">`;
+            } else {
+                iconContainer.innerHTML = '📦';
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Copiar Link Normal
+        document.getElementById('copyLinkBtn').addEventListener('click', () => {
+            const input = document.getElementById('modalLinkInput');
+            input.select();
+            navigator.clipboard.writeText(input.value);
+            const btn = document.getElementById('copyLinkBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copiado!';
+            btn.style.backgroundColor = '#10b981';
+            btn.style.color = '#fff';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+            }, 2000);
+        });
+
+        // Copiar Código Downloader
+        document.getElementById('copyDownloaderBtn').addEventListener('click', () => {
+            const input = document.getElementById('modalDownloaderInput');
+            input.select();
+            navigator.clipboard.writeText(input.value);
+            const btn = document.getElementById('copyDownloaderBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copiado!';
+            btn.style.backgroundColor = '#10b981';
+            btn.style.color = '#fff';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+            }, 2000);
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allApps.filter(app => 
+                app.nome.toLowerCase().includes(term) || 
+                (app.data && app.data.toLowerCase().includes(term))
+            );
+            renderApps(filtered);
+        });
+
+        loadApps();
+    </script>
+</body>
+</html>
