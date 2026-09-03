@@ -104,3 +104,14 @@
         "icone": "imagem/flixx-cine.jfif"
     }
 ]
+[
+    {
+        "id": "1",
+        "nome": "DNS",
+        "data": "02/09/2026",
+        "downloader": "1055158",
+        "linkDownload": "https://dl.ntdev.in/19367",
+        "icone": "imagem/nova-era.jfif"
+    },
+    {
+    
