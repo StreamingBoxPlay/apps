@@ -522,99 +522,35 @@
         }
 
         /* =========================
-            CARREGAR MAIS
-        ========================= */
-
-        .load-more-container {
-            display: flex;
-
-            justify-content: center;
-
-            margin-top: 2rem;
-
-            width: 100%;
-        }
-
-        #loadMoreBtn {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--accent-purple),
-                    var(--accent-pink)
-                );
-
-            color: #fff;
-
-            border: none;
-
-            border-radius: 10px;
-
-            padding:
-                12px 30px;
-
-            font-size: 0.95rem;
-
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition:
-                all 0.3s ease;
-
-            box-shadow:
-                0 5px 18px
-                rgba(
-                    147,
-                    51,
-                    234,
-                    0.3
-                );
-        }
-
-        #loadMoreBtn:hover {
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 8px 25px
-                rgba(
-                    147,
-                    51,
-                    234,
-                    0.45
-                );
-        }
-
-        /* =========================
-            MENU MAC FOOTER
+            MENU FIXO RODAPÉ (WIDTH 100%)
         ========================= */
 
         .mac-dock-container {
             position: fixed;
 
-            bottom: 20px;
+            bottom: 0;
 
-            left: 50%;
+            left: 0;
 
-            transform: translateX(-50%);
+            width: 100%;
 
-            background: rgba(19, 21, 32, 0.75);
+            background: rgba(10, 11, 16, 0.9);
 
             backdrop-filter: blur(16px);
 
-            border: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
 
-            border-radius: 20px;
-
-            padding: 10px 16px;
+            padding: 12px 20px;
 
             display: flex;
 
-            gap: 14px;
+            justify-content: center;
+
+            gap: 20px;
 
             z-index: 999;
 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.6);
         }
 
         .dock-item {
@@ -622,79 +558,51 @@
 
             border: 1px solid var(--border-color);
 
-            border-radius: 14px;
+            border-radius: 12px;
 
-            width: 50px;
-
-            height: 50px;
+            padding: 8px 18px;
 
             display: flex;
 
             align-items: center;
 
-            justify-content: center;
+            gap: 8px;
 
-            font-size: 1.4rem;
+            font-size: 0.95rem;
+
+            font-weight: 600;
+
+            color: var(--text-muted);
 
             cursor: pointer;
-
-            position: relative;
 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .dock-item span.icon {
+            font-size: 1.2rem;
+        }
+
         .dock-item:hover {
-            transform: translateY(-8px) scale(1.1);
+            transform: translateY(-4px);
+
+            color: var(--text-main);
 
             border-color: var(--accent-border);
 
-            box-shadow: 0 10px 20px rgba(147, 51, 234, 0.4);
+            background: #26293d;
+
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
         }
 
         .dock-item.active {
+            color: #fff;
+
             border-color: var(--accent-pink);
 
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
 
-            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.6);
-        }
-
-        .dock-tooltip {
-            position: absolute;
-
-            bottom: 65px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            background: var(--card-bg);
-
-            color: var(--text-main);
-
-            padding: 4px 8px;
-
-            border-radius: 6px;
-
-            font-size: 0.75rem;
-
-            white-space: nowrap;
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transition: all 0.2s ease;
-
-            border: 1px solid var(--border-color);
-
-            pointer-events: none;
-        }
-
-        .dock-item:hover .dock-tooltip {
-            opacity: 1;
-
-            visibility: visible;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.5);
         }
 
         /* =========================
@@ -1049,6 +957,16 @@
                 height: 70px;
             }
 
+            .mac-dock-container {
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .dock-item {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
         }
 
         @media (max-width: 480px) {
@@ -1077,6 +995,14 @@
                 width: 65px;
 
                 height: 65px;
+            }
+
+            .dock-item span.text {
+                display: none;
+            }
+
+            .dock-item {
+                padding: 10px 14px;
             }
 
         }
@@ -1165,24 +1091,24 @@
 
 
 <!-- =========================
-     MENU MAC DOCK (FOOTER)
+     MENU FIXO RODAPÉ (WIDTH 100%)
 ========================= -->
 
 <div class="mac-dock-container" id="macDock">
 
     <div class="dock-item active" onclick="switchTab('all')" data-tab="all">
-        🌐
-        <div class="dock-tooltip">Todos</div>
+        <span class="icon">🏠</span>
+        <span class="text">Início / Todos</span>
     </div>
 
     <div class="dock-item" onclick="switchTab('apps')" data-tab="apps">
-        📦
-        <div class="dock-tooltip">Aplicativos Disponíveis</div>
+        <span class="icon">📦</span>
+        <span class="text">Aplicativos Disponíveis</span>
     </div>
 
     <div class="dock-item" onclick="switchTab('tools')" data-tab="tools">
-        🛠️
-        <div class="dock-tooltip">Ferramentas</div>
+        <span class="icon">🛠️</span>
+        <span class="text">Ferramentas</span>
     </div>
 
 </div>
@@ -1325,8 +1251,6 @@ let currentTab = 'all';
 
 let searchTerm = '';
 
-let visibleAppsCount = 8;
-
 
 /* =========================
    CARREGAR DADOS
@@ -1384,8 +1308,6 @@ async function loadData() {
 function switchTab(tab) {
 
     currentTab = tab;
-
-    visibleAppsCount = 8;
 
 
     document.querySelectorAll('.dock-item').forEach(item => {
@@ -1448,32 +1370,15 @@ function renderContent() {
 
         } else {
 
-            const appsToShow = filteredApps.slice(0, visibleAppsCount);
-
             html += `<div class="apps-grid">`;
 
-            appsToShow.forEach(app => {
+            filteredApps.forEach(app => {
 
                 html += buildCard(app, 'app');
 
             });
 
             html += `</div>`;
-
-
-            if (visibleAppsCount < filteredApps.length) {
-
-                html += `
-
-                    <div class="load-more-container">
-
-                        <button id="loadMoreBtn" onclick="loadMoreApps()">Carregar mais</button>
-
-                    </div>
-
-                `;
-
-            }
 
         }
 
@@ -1510,32 +1415,15 @@ function renderContent() {
 
         } else {
 
-            const appsToShow = filteredApps.slice(0, visibleAppsCount);
-
             html += `<div class="apps-grid">`;
 
-            appsToShow.forEach(app => {
+            filteredApps.forEach(app => {
 
                 html += buildCard(app, 'app');
 
             });
 
             html += `</div>`;
-
-
-            if (visibleAppsCount < filteredApps.length) {
-
-                html += `
-
-                    <div class="load-more-container">
-
-                        <button id="loadMoreBtn" onclick="loadMoreApps()">Carregar mais</button>
-
-                    </div>
-
-                `;
-
-            }
 
         }
 
@@ -1620,15 +1508,6 @@ function buildCard(item, type) {
 }
 
 
-function loadMoreApps() {
-
-    visibleAppsCount += 8;
-
-    renderContent();
-
-}
-
-
 /* =========================
    PESQUISA GLOBAL
 ========================= */
@@ -1636,8 +1515,6 @@ function loadMoreApps() {
 document.getElementById('searchInput').addEventListener('input', event => {
 
     searchTerm = event.target.value;
-
-    visibleAppsCount = 8;
 
     renderContent();
 
