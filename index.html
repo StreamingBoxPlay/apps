@@ -32,6 +32,28 @@
             --success: #10b981;
         }
 
+        /* =========================
+            CUSTOM SCROLLBAR (FINA E COMBINANDO)
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-border);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -44,6 +66,9 @@
                 'Segoe UI',
                 Roboto,
                 sans-serif;
+            
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) var(--bg-color);
         }
 
         body {
