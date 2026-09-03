@@ -1,1 +1,19 @@
+[
+  {
+    "id": "1",
+    "nome": "nome do app",
+    "data": "02/09/2026",
+    "downloader": "1055158",
+    "linkDownload": "https://dl.ntdev.in/19367",
+    "icone": "imagem/nova-era.jfif"
+  },
+  {
+    "id": "2",
+    "nome": "nome do app",
+    "data": "02/09/2026",
+    "downloader": "4237022",
+    "linkDownload": "https://uvtpdw.playtro.click/tp/uv_4.20.1.apk",
+    "icone": "imagem/unitv.jfif"
+  }
 
+]
