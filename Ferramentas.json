@@ -1,11 +1,16 @@
 [
     {
         "id": "1",
-        "nome": "DNS",
+        "nome": "Nome da ferramenta",
         "data": "02/09/2026",
-        "downloader": "1055158",
-        "linkDownload": "https://dl.ntdev.in/19367",
-        "icone": "imagem/nova-era.jfif"
-    
-        
-    
+        "linkDownload": "https://exemplo.com/download",
+        "icone": "imagem/ferramenta.jfif"
+    },
+    {
+        "id": "2",
+        "nome": "Outra ferramenta",
+        "data": "02/09/2026",
+        "linkDownload": "https://exemplo.com/download",
+        "icone": "imagem/outra-ferramenta.jfif"
+    }
+]
