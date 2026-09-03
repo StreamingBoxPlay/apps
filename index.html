@@ -1227,7 +1227,7 @@
 
             <div class="section-box" id="downloaderSectionBox">
 
-                <div class="section-label" id="modalDownloaderLabel">
+                <div class="section-label">
                     Código Downloader
                 </div>
 
@@ -1459,7 +1459,7 @@ function renderApps() {
                     <div class="app-date">
 
                         Atualizado em:
-                        ${app.data || '02/09/2026'}
+                        ${app.data || '03/09/2026'}
 
                     </div>
 
@@ -1575,7 +1575,8 @@ function renderTools() {
 
 
                     <div class="app-date">
-                        ${tool.descricao || 'Ferramenta Oficial'}
+                        Atualizado em:
+                        ${tool.data || '03/09/2026'}
                     </div>
 
                 </div>
@@ -1607,7 +1608,7 @@ function renderTools() {
                     <button
                         class="btn-details"
                     >
-                        Acessar Ferramenta
+                        Ver Detalhes
                     </button>
 
                 </div>
@@ -1674,8 +1675,8 @@ function openModal(id, type = 'app') {
             item.nome;
 
 
-    const linkValue = type === 'tool' ? (item.link || '#') : (item.linkDownload || '#');
-    const downloaderValue = type === 'tool' ? (item.codigo || item.downloader || '') : (item.downloader || '');
+    const linkValue = item.linkDownload || '#';
+    const downloaderValue = item.downloader || '';
 
     document
         .getElementById(
@@ -1701,17 +1702,10 @@ function openModal(id, type = 'app') {
             downloaderValue;
 
     const downloaderSection = document.getElementById('downloaderSectionBox');
-    const downloaderLabel = document.getElementById('modalDownloaderLabel');
 
-    if (type === 'tool') {
-        downloaderLabel.textContent = 'Código / Referência';
-        if (!downloaderValue) {
-            downloaderSection.style.display = 'none';
-        } else {
-            downloaderSection.style.display = 'block';
-        }
+    if (!downloaderValue) {
+        downloaderSection.style.display = 'none';
     } else {
-        downloaderLabel.textContent = 'Código Downloader';
         downloaderSection.style.display = 'block';
     }
 
