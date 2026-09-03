@@ -1,16 +1,1 @@
-[
-    {
-        "id": "1",
-        "nome": "Nome da ferramenta",
-        "data": "02/09/2026",
-        "linkDownload": "https://exemplo.com/download",
-        "icone": "imagem/ferramenta.jfif"
-    },
-    {
-        "id": "2",
-        "nome": "Outra ferramenta",
-        "data": "02/09/2026",
-        "linkDownload": "https://exemplo.com/download",
-        "icone": "imagem/outra-ferramenta.jfif"
-    }
-]
+
