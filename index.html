@@ -57,7 +57,7 @@
         }
 
         /* =========================
-           HEADER
+            HEADER
         ========================= */
 
         header {
@@ -174,7 +174,7 @@
         }
 
         /* =========================
-           PESQUISA
+            PESQUISA
         ========================= */
 
         .search-box {
@@ -239,7 +239,7 @@
         }
 
         /* =========================
-           MAIN
+            MAIN
         ========================= */
 
         main {
@@ -256,7 +256,7 @@
         }
 
         /* =========================
-           TÍTULO
+            TÍTULO
         ========================= */
 
         .section-title {
@@ -277,7 +277,7 @@
         }
 
         /* =========================
-           GRID
+            GRID
         ========================= */
 
         .apps-grid {
@@ -293,7 +293,7 @@
         }
 
         /* =========================
-           CARD
+            CARD
         ========================= */
 
         .app-card {
@@ -518,7 +518,7 @@
         }
 
         /* =========================
-           CARREGAR MAIS
+            CARREGAR MAIS
         ========================= */
 
         .load-more-container {
@@ -582,7 +582,7 @@
         }
 
         /* =========================
-           FERRAMENTAS
+            FERRAMENTAS
         ========================= */
 
         .tools-title {
@@ -607,7 +607,7 @@
         }
 
         /* =========================
-           MODAL
+            MODAL
         ========================= */
 
         .modal-overlay {
@@ -899,7 +899,7 @@
         }
 
         /* =========================
-           STATUS
+            STATUS
         ========================= */
 
         .status-message {
@@ -916,7 +916,7 @@
         }
 
         /* =========================
-           RESPONSIVO
+            RESPONSIVO
         ========================= */
 
         @media (max-width: 768px) {
@@ -1118,6 +1118,18 @@
         Ferramentas
     </div>
 
+    <div
+        id="toolsGrid"
+        class="apps-grid"
+        style="margin-top: 2rem;"
+    >
+
+        <div class="status-message">
+            Carregando ferramentas...
+        </div>
+
+    </div>
+
 
 </main>
 
@@ -1257,6 +1269,8 @@ let filteredApps = [];
 
 let visibleApps = 8;
 
+let allTools = [];
+
 
 /* =========================
    CARREGAR APLICATIVOS
@@ -1323,7 +1337,67 @@ async function loadApps() {
 
 
 /* =========================
-   RENDERIZAR
+   CARREGAR FERRAMENTAS
+========================= */
+
+async function loadTools() {
+
+    try {
+
+        const response =
+            await fetch('tools.json');
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                'Erro ao carregar tools.json'
+            );
+
+        }
+
+
+        allTools =
+            await response.json();
+
+
+        renderTools();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        document
+            .getElementById(
+                'toolsGrid'
+            )
+            .innerHTML = `
+
+                <div class="status-message">
+
+                    Não foi possível carregar
+                    as ferramentas.
+
+                    <br><br>
+
+                    Verifique se o arquivo
+                    <strong>tools.json</strong>
+                    está no mesmo diretório.
+
+                </div>
+
+            `;
+
+    }
+
+}
+
+
+/* =========================
+   RENDERIZAR APLICATIVOS
 ========================= */
 
 function renderApps() {
@@ -1451,6 +1525,97 @@ function renderApps() {
             .style.display = 'none';
 
     }
+
+}
+
+
+/* =========================
+   RENDERIZAR FERRAMENTAS
+========================= */
+
+function renderTools() {
+
+    const grid =
+        document.getElementById(
+            'toolsGrid'
+        );
+
+
+    if (
+        allTools.length === 0
+    ) {
+
+        grid.innerHTML = `
+
+            <div class="status-message">
+                Nenhuma ferramenta encontrada.
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        allTools
+        .map(tool => `
+
+            <div
+                class="app-card"
+                onclick="window.open('${tool.link || '#'}', '_blank')"
+            >
+
+                <div class="app-info">
+
+                    <h3>
+                        ${tool.nome}
+                    </h3>
+
+
+                    <div class="app-date">
+                        ${tool.descricao || 'Ferramenta Oficial'}
+                    </div>
+
+                </div>
+
+
+                <div class="app-icon">
+
+                    ${
+                        tool.icone
+
+                        ?
+
+                        `<img
+                            src="${tool.icone}"
+                            alt="${tool.nome}"
+                            onerror="this.parentElement.innerHTML='🛠️'"
+                        >`
+
+                        :
+
+                        '🛠️'
+                    }
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <button
+                        class="btn-details"
+                    >
+                        Acessar Ferramenta
+                    </button>
+
+                </div>
+
+            </div>
+
+        `)
+        .join('');
 
 }
 
@@ -1819,6 +1984,7 @@ document
 ========================= */
 
 loadApps();
+loadTools();
 
 </script>
 
