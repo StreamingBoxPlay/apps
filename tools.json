@@ -57,11 +57,11 @@
 
     },
     {
-        "id": "7",
-        "nome": "Teste 6",
+        "id": "8",
+        "nome": "Smart Tube",
         "data": "02/09/2026",
-        "downloader": "4237092",
-        "linkDownload": "https://www.mediafire.com/file/n0ctmpzb3dtzfzb/GMD_Hide_Bar.apk/file",
-        "icone": "imagem/hide.jpeg"
+        "downloader": "28544",
+        "linkDownload": "https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk",
+        "icone": "imagem/smart tue.jpeg"
     }
     ] 
