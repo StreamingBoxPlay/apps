@@ -49,7 +49,16 @@
     },
     {
         "id": "7",
-        "nome": "Teste 4",
+        "nome": "Teste 5",
+        "data": "02/09/2026",
+        "downloader": "4237092",
+        "linkDownload": "https://www.mediafire.com/file/n0ctmpzb3dtzfzb/GMD_Hide_Bar.apk/file",
+        "icone": "imagem/hide.jpeg"
+
+    },
+    {
+        "id": "7",
+        "nome": "Teste 6",
         "data": "02/09/2026",
         "downloader": "4237092",
         "linkDownload": "https://www.mediafire.com/file/n0ctmpzb3dtzfzb/GMD_Hide_Bar.apk/file",
