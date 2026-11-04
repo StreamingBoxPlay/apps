@@ -11,8 +11,8 @@
     "id": "2",
     "nome": "UNITV",
     "data": "02/09/2026",
-    "downloader": "4237022",
-    "linkDownload": "https://uvtpdw.playtro.click/tp/uv_4.20.1.apk",
+    "downloader": "8773884",
+    "linkDownload": "https://www.mediafire.com/file/fr6h6jqqbqkfdoh/UniTV_4.22.apk/file",
     "icone": "imagem/unitv.jfif"
   },
   {
@@ -134,5 +134,13 @@
     "downloader": "5338337",
     "linkDownload": "https://www.mediafire.com/file/3nxjtqli6ix8azg/Fun_Play_1.0.12.apk/file",
     "icone": "imagem/fun play.jpeg"
+  },
+  {
+    "id": "16",
+    "nome": "OneTv Vu Player",
+    "data": "04/11/2026",
+    "downloader": "8829507",
+    "linkDownload": "https://www.mediafire.com/file/au572rj0vfq7fum/onevu.player_1.8.apk/file",
+    "icone": "imagem/one.jpg"
   }
   ]
