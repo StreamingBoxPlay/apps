@@ -81,6 +81,22 @@
   },
   {
     "id": "11",
+    "nome": "OneTv Vu Player",
+    "data": "04/11/2026",
+    "downloader": "8829507",
+    "linkDownload": "https://www.mediafire.com/file/au572rj0vfq7fum/onevu.player_1.8.apk/file",
+    "icone": "imagem/one image.jpeg"
+  },
+  {
+    "id": "12",
+    "nome": "Novo New One P2P",
+    "data": "15/11/2026",
+    "downloader": "1647391",
+    "linkDownload": "https://www.mediafire.com/file/of9pbcszrm071mg/New+One+P2P.apk/file",
+    "icone": "imagem/one image.jpeg"
+  },
+  {
+    "id": "13",
     "nome": "WPlay P2P BinStrean",
     "data": "04/11/2026",
     "downloader": "3964281",
@@ -88,7 +104,7 @@
     "icone": "imagem/wplay.jpeg"
   },
   {
-    "id": "11.1",
+    "id": "14",
     "nome": "WPlay Mobile",
     "data": "02/09/2026",
     "downloader": "4632524",
@@ -96,7 +112,7 @@
     "icone": "imagem/wplay mobile.png" 
   },
   {
-    "id": "11.2",
+    "id": "15",
     "nome": "WPlay Windows",
     "data": "02/09/2026",
     "downloader": "6342631",
@@ -104,7 +120,7 @@
     "icone": "imagem/wplay windows.png"
   },
   {
-    "id": "12",
+    "id": "16",
     "nome": "Flixx Cine TVBox",
     "data": "02/09/2026",
     "downloader": "3488716",
@@ -112,7 +128,7 @@
     "icone": "imagem/flixx-cine.jfif"
   },
   {
-    "id": "13",
+    "id": "17",
     "nome": "Flixx Cine Celular",
     "data": "02/09/2026",
     "downloader": "7038778",
@@ -120,7 +136,7 @@
     "icone": "imagem/flixx-cine.jfif"
   },
   {
-    "id": "14",
+    "id": "18",
     "nome": "XCIPTV",
     "data": "02/09/2026",
     "downloader": "2129549",
@@ -128,19 +144,11 @@
     "icone": "imagem/xciptv.jpeg"
   },
   {
-    "id": "15",
+    "id": "19",
     "nome": "Fun Play",
     "data": "02/09/2026",
     "downloader": "5338337",
     "linkDownload": "https://www.mediafire.com/file/3nxjtqli6ix8azg/Fun_Play_1.0.12.apk/file",
     "icone": "imagem/fun play.jpeg"
-  },
-  {
-    "id": "16",
-    "nome": "OneTv Vu Player",
-    "data": "04/11/2026",
-    "downloader": "8829507",
-    "linkDownload": "https://www.mediafire.com/file/au572rj0vfq7fum/onevu.player_1.8.apk/file",
-    "icone": "imagem/one image.jpeg"
   }
   ]
